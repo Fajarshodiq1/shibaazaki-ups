@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
-        <x-page-header title="Kelola Layanan" subtitle="Kelola layanan Anda dan atur konten Anda"
-            button-route="categories.create" button-text="Tambah" />
+        <x-page-header title="Kelola Partner" subtitle="Kelola Data Partner" button-route="partners.create"
+            button-text="Tambah" />
     </x-slot>
 
     <main class="py-8">
@@ -18,8 +18,8 @@
             <section class="bg-white overflow-hidden shadow-xl sm:rounded-xl border border-gray-100">
                 <x-data-table :columns="[
                     [
-                        'label' => 'Image',
-                        'field' => 'image',
+                        'label' => 'Logo',
+                        'field' => 'logo',
                         'type' => 'image',
                         'nameField' => 'name',
                         'showName' => true,
@@ -36,10 +36,10 @@
                         'type' => 'date',
                         'format' => 'M d, Y',
                     ],
-                ]" :data="$categories" :actions="[
+                ]" :data="$partners" :actions="[
                     [
                         'type' => 'link',
-                        'route' => 'categories.edit',
+                        'route' => 'partners.edit',
                         'label' => 'Edit',
                         'class' => 'text-amber-700 bg-amber-100 hover:bg-amber-200',
                         'icon' =>
@@ -47,7 +47,7 @@
                     ],
                     [
                         'type' => 'form',
-                        'route' => 'categories.destroy',
+                        'route' => 'partners.destroy',
                         'method' => 'DELETE',
                         'label' => 'Delete',
                         'class' => 'text-red-700 bg-red-100 hover:bg-red-200',
@@ -57,7 +57,7 @@
                     ],
                 ]"
                     empty-title="Layanan Tidak Ditemukan" empty-message="Anda belum membuat Layanan apapun."
-                    :create-route="route('categories.create')" create-text="Buat Layanan Pertama Anda" />
+                    :create-route="route('partners.create')" create-text="Buat Layanan Pertama Anda" />
             </section>
         </div>
     </main>

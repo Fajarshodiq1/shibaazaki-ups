@@ -4,17 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Documentation;
+use App\Models\Partner;
 use App\Models\Post;
 use App\Models\Product;
 use App\Models\RentalPrice;
 use App\Models\UpsBrand;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class FrontController extends Controller
 {
 
     public function index()
     {
+        // get partners
+        $partners = Partner::all();
         // get category
         $categories = Category::all();
         // get ups-brands
@@ -25,7 +29,7 @@ class FrontController extends Controller
             ->orderBy('created_at', 'desc')
             ->paginate(8);
         $posts = Post::with('author')->latest()->take(3)->get();
-        return view('front.pages.home', compact('categories', 'posts', 'products', 'upsBrands'));
+        return view('front.home.index', compact('categories', 'posts', 'products', 'upsBrands', 'partners'));
     }
     
     // show profile
@@ -33,19 +37,100 @@ class FrontController extends Controller
     {
         return view('front.pages.profile');
     }
+
+        public function CategoryIndex(Request $request) 
+    {
+        $categories = Category::all();
+        
+        // Get selected category from request
+        $selectedCategory = $request->get('category');
+        
+        // Build query for products
+        $productsQuery = Product::with('category'); // Pastikan relasi dimuat
+        
+        // Apply category filter if selected
+        if ($selectedCategory && $selectedCategory !== 'all') {
+            $productsQuery->where('category_id', $selectedCategory);
+        }
+        
+        // Order and paginate products
+        $products = $productsQuery->orderBy('created_at', 'desc')->paginate(12);
+        
+        // Append query parameters to pagination links
+        $products->appends($request->query());
+        
+        return view('front.category.index', compact('categories', 'products', 'selectedCategory'));
+    }
+
+    // Method baru untuk menangani AJAX filter
+    public function filterProducts(Request $request)
+    {
+        $categoryId = $request->get('category');
+        
+        // Build query
+        $productsQuery = Product::with('category');
+        
+        if ($categoryId && $categoryId !== 'all') {
+            $productsQuery->where('category_id', $categoryId);
+        }
+        
+        $products = $productsQuery->orderBy('created_at', 'desc')->paginate(12);
+        $products->appends($request->query());
+        
+        // Debug: cek apakah ada data
+        Log::info('Filter Debug:', [
+            'category_id' => $categoryId,
+            'products_count' => $products->count(),
+            'total' => $products->total()
+        ]);
+        
+        if ($request->ajax()) {
+            // Render HTML untuk produk
+            $html = '';
+            if ($products->count() > 0) {
+                foreach ($products as $product) {
+                    $html .= view('components.product-card', [
+                        'product' => $product,
+                        'showRating' => true,
+                        'showBadge' => true,
+                        'showButton' => true,
+                        'buttonText' => 'Beli Sekarang'
+                    ])->render();
+                }
+            } else {
+                $html = view('components.empty-state', [
+                    'title' => 'Tidak ada produk',
+                    'message' => $categoryId !== 'all' ? 'Tidak ada produk untuk kategori ini.' : 'Data akan segera tersedia disini.'
+                ])->render();
+            }
+            
+            // Render pagination
+            $pagination = $products->links()->render();
+            
+            return response()->json([
+                'html' => $html,
+                'pagination' => $pagination,
+                'total' => $products->total(),
+                'count' => $products->count()
+            ]);
+        }
+        
+        return redirect()->back();
+    }
+
     public function CategoryShow($slug)
     {
         // get products
         $category = Category::where('slug', $slug)->firstOrFail();
         $products = Product::where('category_id', $category->id)->orderBy('created_at', 'desc')->paginate(10);
-        return view('front.category.index', compact('category', 'products'));
+        return view('front.category.show', compact('category', 'products'));
     }
     
     // products show
     public function ProductShow($slug)
     {
         $product = Product::where('slug', $slug)->firstOrFail();
-        return view('front.products.show', compact('product'));
+        return view('front.product.show', compact('product'));
     }
 
     // post index with search functionality

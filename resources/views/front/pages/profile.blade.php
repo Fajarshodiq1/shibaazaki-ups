@@ -11,7 +11,7 @@
 @section('content')
     <x-hero-header title="Profile Kami"
         subtitle="Kami adalah penyedia jasa Rental UPS, Sewa UPS, dan juga melayani Maintenance UPS." />
-    <x-breadcrumb :items="[['label' => 'Beranda', 'url' => route('pages.home')], ['label' => 'Profil']]" />
+    <x-breadcrumb :items="[['label' => 'Beranda', 'url' => route('front.home.index')], ['label' => 'Profil']]" />
     <section class="container max-w-7xl mx-auto mb-16 flex flex-col gap-8 px-5 mt-5 lg:mt-10">
         <div class="grid lg:grid-cols-2 gap-10 items-center">
             <!-- Text Content -->
@@ -21,17 +21,19 @@
                 </h2>
                 <div class="prose prose-sm sm:prose-base lg:prose-lg text-belibang-grey leading-relaxed max-w-none">
                     <x-paragraph>
-                        Kami merupakan penyedia jasa Rental UPS, Sewa UPS, dan juga melayani Maintenance UPS. Kami berlokasi
-                        di Jakarta tepatnya di Jl. Mawar No 42 RT006/Rw08 Srengseng, Kec. Kembangan, Kota Jakarta Barat
-                        11630. Kami telah berpengalaman dalam menangani Service, Installasi & Maintenance berbagai merk UPS
-                        seperti : APC, Chloride, Bauma, Delta Power, ICA, Laplace, Emerson, Liebert, MGE, Sendon, Toshiba,
-                        Powerware, Pascal, Unipower, Vektor dll. UPS Subrata dapat melayani jasa Rental UPS maupun service
-                        UPS mencakup daerah JABODETABEK hingga seluruh Indonesia.
+                        PT. Shibaazaki didirikan dengan Akte notaris tanggal 02 Pebruari 2005,
+                        merupakan perubahan pemilik saham PT. Pioranusa Pratamamaju, maka perusahaan
+                        tersebut diatas berganti nama menjadi PT.Shibaazaki adapun tingkat managemen dan
+                        Personal kerja merupakan personal dari PT. Pioranusa Pratamamaju. Perusahaan ini
+                        bergerak dalam bidang jasa teknologi informasi, peralatan/suku cadang kantor dan
+                        pergudangan, mekanikal dan elektrikal/listrik, teknologi informasi, dan peralatan/suku
+                        cadang radio, telekomunikasi dan elektronika, untuk melayani kebutuhan yang semakin
+                        berkembang dalam perekonomian Indonesia yang semakin maju.
                     </x-paragraph>
                     <x-paragraph>
-                        Selain melayani jasa rental UPS kami juga melayani penjualan UPS baru, UPS Second dan menjual
-                        Battery. Kami telah berkomitmen untuk selalu menyediakan produk-produk elektrik yang berkualitas
-                        tinggi dan memberikan pelayanan terbaik tentunya dengan harga terjangkau dan bersaing.
+                        PT. Shibaazaki merupakan perusahaan swasta yang didirikan oleh tenaga yang
+                        berpengalaman dibidangnya, untuk melayani sektor-sektor pengadaan dan perawatan
+                        yang berhubungan baik kebutuhan khusus ataupun kepentingan lainnya.
                     </x-paragraph>
                 </div>
                 <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 md:pt-4">

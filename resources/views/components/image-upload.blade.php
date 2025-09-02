@@ -11,8 +11,11 @@
     <div class="flex items-center space-x-2 mb-2">
         <i class="fas fa-image text-indigo-500"></i>
         <x-input-label :for="$id" :value="$label" class="text-base font-medium" />
+
         @if ($optional)
             <span class="text-gray-400 text-sm">(Optional)</span>
+        @else
+            <span class="text-red-500 text-sm">*</span>
         @endif
     </div>
 
@@ -40,7 +43,7 @@
     @if ($recommended)
         <div class="flex items-center space-x-2 text-sm text-gray-500 mt-1">
             <i class="fas fa-info-circle"></i>
-            <span>Recommended size: {{ $recommended }}</span>
+            <span>Ukuran yang direkomendasikan: {{ $recommended }}</span>
         </div>
     @endif
 </div>

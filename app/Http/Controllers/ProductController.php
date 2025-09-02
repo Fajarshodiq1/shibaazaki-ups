@@ -16,7 +16,7 @@ class ProductController extends Controller
     {
         // products with category
         $products = Product::with('category')->get();
-        return view('product.index', compact('products'));
+        return view('products.index', compact('products'));
     }
 
     /**
@@ -25,7 +25,7 @@ class ProductController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('product.create', compact('categories'));
+        return view('products.create', compact('categories'));
     }
 
     /**
@@ -57,13 +57,10 @@ class ProductController extends Controller
         return redirect()->route('products.index')->with('success', 'Product created successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     */
+    // show
     public function show(Product $product)
     {
-        $product->load('category');
-        return view('product.show', compact('product'));
+        return view('products.show', compact('product'));
     }
 
     /**
@@ -72,7 +69,7 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         $categories = Category::all();
-        return view('product.edit', compact('product', 'categories'));
+        return view('products.edit', compact('product', 'categories'));
     }
 
     /**

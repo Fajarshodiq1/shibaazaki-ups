@@ -6,16 +6,11 @@
     <div class="min-h-screen bg-img-black mt-20">
         <!-- Breadcrumb -->
         <section class="container max-w-[1230px] mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <nav class="flex items-center space-x-2 text-sm text-belibang-grey">
-                <a href="{{ route('pages.home') }}" class="hover:text-white transition-colors">Home</a>
-                <span>/</span>
-                <a href="{{ route('front.category.show', $product->category->slug) }}"
-                    class="hover:text-white transition-colors">
-                    {{ $product->category->name }}
-                </a>
-                <span>/</span>
-                <span class="text-white">{{ $product->name }}</span>
-            </nav>
+            <x-breadcrumb :items="[
+                ['label' => 'Home', 'url' => '/'],
+                ['label' => 'Layanan', 'url' => route('front.category.index')],
+                ['label' => $product->name],
+            ]" />
         </section>
 
         <!-- Product Detail -->

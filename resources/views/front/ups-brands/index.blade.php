@@ -7,7 +7,7 @@
 @section('meta_keywords', 'ups, brand ups, shibaazaki, jual ups, sewa ups, rental ups, maintenance ups')
 @section('content')
     <x-hero-header title="Brand UPS Kami" subtitle="Kami menyediakan berbagai brand UPS berkualitas" />
-    <x-breadcrumb :items="[['label' => 'Beranda', 'url' => route('pages.home')], ['label' => 'Brand UPS']]" />
+    <x-breadcrumb :items="[['label' => 'Beranda', 'url' => route('front.home.index')], ['label' => 'Brand UPS']]" />
     <x-search-bar :action="route('front.ups-brands.index')" placeholder="Cari Brand UPS..." :collection="$upsBrands" label="brand" />
     <section id="NewProduct"
         class="container max-w-7xl mx-auto mb-16 md:mb-24 lg:mb-[102px] flex flex-col gap-6 md:gap-8 px-5">

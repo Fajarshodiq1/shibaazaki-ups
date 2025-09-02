@@ -65,10 +65,14 @@
                 <div class="flex flex-col gap-4">
                     <p class="font-semibold text-sm text-white">Layanan Kami</p>
                     <div class="flex flex-col gap-3">
-                        <a href="" class="text-belibang-grey font-semibold text-xs">Jual dan Beli UPS</a>
-                        <a href="" class="text-belibang-grey font-semibold text-xs">Sewa UPS</a>
-                        <a href="" class="text-belibang-grey font-semibold text-xs">Maintenance UPS</a>
-                        <a href="" class="text-belibang-grey font-semibold text-xs">Service UPS</a>
+                        @forelse($categories as $category)
+                            <a href="{{ route('front.category.show', $category->slug) }}"
+                                class="text-belibang-grey font-semibold text-xs">
+                                {{ $category->name }}
+                            </a>
+                        @empty
+                            <span class="text-belibang-grey font-semibold text-xs">Belum ada layanan</span>
+                        @endforelse
                     </div>
                 </div>
                 <div class="flex flex-col gap-4">

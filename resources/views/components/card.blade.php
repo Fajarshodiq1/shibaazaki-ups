@@ -29,10 +29,10 @@
             'description' => 'text-sm text-gray-600 line-clamp-2',
         ],
         'category' => [
-            'container' => 'p-[18px] space-y-3',
-            'image' => 'w-[58px] h-[58px]',
-            'title' => 'font-bold text-sm',
-            'description' => 'text-xs text-belibang-grey line-clamp-2',
+            'container' => 'p-[18px] space-y-5',
+            'image' => 'w-[58px] h-[58px] mx-auto', // tambahin mx-auto biar auto center
+            'title' => 'font-bold text-sm md:text-base lg:text-lg text-center',
+            'description' => 'text-xs sm:text-sm text-belibang-grey line-clamp-2 text-center',
         ],
         'product' => [
             'container' => 'p-5 space-y-4',

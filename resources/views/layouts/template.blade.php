@@ -12,8 +12,8 @@
     <meta name="description" content="@yield(
         'meta_description',
         'PT Shibaazaki. Your Trusted UPS Solutions Partner. We’re working hard to launch a new and
-                            improved website. Stay tuned to explore PT Shibaazaki’s reliable and innovative solutions for UPS provision, rental, and
-                            maintenance.'
+                                    improved website. Stay tuned to explore PT Shibaazaki’s reliable and innovative solutions for UPS provision, rental, and
+                                    maintenance.'
     )">
     <meta name="keywords" content="@yield('meta_keywords', 'Shibaazaki, UPS, Rental, Maintenance, Jual Beli, Solutions, Trusted Partner')">
     <style>

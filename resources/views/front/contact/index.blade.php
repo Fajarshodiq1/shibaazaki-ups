@@ -12,90 +12,13 @@
     <section class="py-20 bg-belibang-black relative overflow-hidden">
         <div class="container mx-auto px-4 relative">
             <div class="max-w-7xl mx-auto">
-                <div class="grid lg:grid-cols-2 gap-12 items-start">
-                    <!-- Contact Form -->
-                    <div class="order-2 lg:order-1">
-                        <form
-                            class="bg-belibang-darker-grey/50 backdrop-blur-lg rounded-3xl p-8 md:p-12 border border-belibang-dark-grey">
-                            <div class="grid md:grid-cols-2 gap-8 mb-8">
-                                <!-- Name -->
-                                <div class="group">
-                                    <label class="block text-belibang-light-grey font-medium mb-3">Nama Lengkap *</label>
-                                    <input type="text" name="name" required
-                                        class="w-full bg-belibang-black/50 border border-belibang-dark-grey rounded-full px-4 py-4 text-white focus:border-blue-500 focus:outline-none transition-colors placeholder-belibang-grey"
-                                        placeholder="Masukkan nama lengkap Anda">
-                                </div>
-
-                                <!-- Company -->
-                                <div class="group">
-                                    <label class="block text-belibang-light-grey font-medium mb-3">Nama Perusahaan</label>
-                                    <input type="text" name="company"
-                                        class="w-full bg-belibang-black/50 border border-belibang-dark-grey rounded-full px-4 py-4 text-white focus:border-blue-500 focus:outline-none transition-colors placeholder-belibang-grey"
-                                        placeholder="Nama perusahaan (opsional)">
-                                </div>
-
-                                <!-- Email -->
-                                <div class="group">
-                                    <label class="block text-belibang-light-grey font-medium mb-3">Email *</label>
-                                    <input type="email" name="email" required
-                                        class="w-full bg-belibang-black/50 border border-belibang-dark-grey rounded-full px-4 py-4 text-white focus:border-blue-500 focus:outline-none transition-colors placeholder-belibang-grey"
-                                        placeholder="email@domain.com">
-                                </div>
-
-                                <!-- Phone -->
-                                <div class="group">
-                                    <label class="block text-belibang-light-grey font-medium mb-3">Nomor Telepon *</label>
-                                    <input type="tel" name="phone" required
-                                        class="w-full bg-belibang-black/50 border border-belibang-dark-grey rounded-full px-4 py-4 text-white focus:border-blue-500 focus:outline-none transition-colors placeholder-belibang-grey"
-                                        placeholder="+62 812-3456-7890">
-                                </div>
-                            </div>
-
-                            <!-- Service Type -->
-                            <div class="mb-8">
-                                <label class="block text-belibang-light-grey font-medium mb-3">Jenis Layanan *</label>
-                                <select name="service_type" required
-                                    class="w-full bg-belibang-black/50 border border-belibang-dark-grey rounded-full px-4 py-4 text-white focus:border-blue-500 focus:outline-none transition-colors">
-                                    <option value="">Pilih jenis layanan</option>
-                                    <option value="rental_ups">Rental UPS</option>
-                                    <option value="maintenance">Maintenance UPS</option>
-                                    <option value="consultation">Konsultasi Teknis</option>
-                                    <option value="installation">Instalasi UPS</option>
-                                    <option value="other">Lainnya</option>
-                                </select>
-                            </div>
-
-                            <!-- Message -->
-                            <div class="mb-8">
-                                <label class="block text-belibang-light-grey font-medium mb-3">Pesan *</label>
-                                <textarea name="message" rows="6" required
-                                    class="w-full bg-belibang-black/50 border border-belibang-dark-grey rounded-xl px-4 py-4 text-white focus:border-blue-500 focus:outline-none transition-colors placeholder-belibang-grey resize-none"
-                                    placeholder="Jelaskan kebutuhan UPS Anda, termasuk kapasitas daya, durasi rental, dan lokasi penggunaan..."></textarea>
-                            </div>
-
-                            <!-- Submit Button -->
-                            <div class="text-center">
-                                <button type="submit"
-                                    class="group bg-gradient-to-r from-blue-500 to-green-600 hover:from-blue-600 hover:to-green-700 text-white font-bold px-12 py-4 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
-                                    <span class="flex items-center justify-center">
-                                        Kirim Pesan
-                                        <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"
-                                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                                        </svg>
-                                    </span>
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-
+                <div class="w-full gap-12 items-start">
                     <!-- Map & Office Info -->
-                    <div class="order-1 lg:order-2">
+                    <div>
                         <div
-                            class="bg-belibang-darker-grey/50 backdrop-blur-lg rounded-3xl p-8 border border-belibang-dark-grey h-full">
+                            class="bg-belibang-darker-grey/50 backdrop-blur-lg rounded-3xl p-8 border border-belibang-dark-grey h-full flex flex-col lg:flex-row gap-8">
                             <!-- Office Info -->
-                            <div class="mb-8">
+                            <div class="mb-8 w-full lg:w-1/2">
                                 <h3 class="text-2xl font-bold text-white mb-6">Kunjungi Kantor Kami</h3>
 
                                 <!-- Address -->
@@ -171,12 +94,12 @@
                             </div>
 
                             <!-- Google Maps Embed -->
-                            <div class="rounded-2xl overflow-hidden border border-belibang-dark-grey">
+                            <div class="rounded-2xl overflow-hidden border border-belibang-dark-grey w-full lg:w-1/2">
                                 <div class="aspect-video w-full">
                                     <iframe
                                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.0251008100054!2d106.84964387428316!3d-6.260423861290252!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f24da744de91%3A0x4297f8d9f927aca3!2sPT.%20SHIBAAZAKI%20(BELI%20UPS%2C%20SEWA%20UPS%2C%20RENTAL%20UPS%2C%20PREVENTIVE%20MAINTENANCE%20UPS)!5e0!3m2!1sid!2sid!4v1756114883080!5m2!1sid!2sid"
-                                        width="100%" height="100%" style="border:0;" allowfullscreen=""
-                                        loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                                        referrerpolicy="no-referrer-when-downgrade"
                                         class="grayscale hover:grayscale-0 transition-all duration-500">
                                     </iframe>
                                 </div>

@@ -16,7 +16,7 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                     <x-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.*')">
-                        {{ __('Kategori') }}
+                        {{ __('Layanan') }}
                     </x-nav-link>
                     {{-- products --}}
                     <x-nav-link :href="route('products.index')" :active="request()->routeIs('products.*')">
@@ -28,6 +28,9 @@
                     {{-- rental --}}
                     <x-nav-link :href="route('rental-prices.index')" :active="request()->routeIs('rental-prices.*')">
                         {{ __('Sewa') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('partners.index')" :active="request()->routeIs('partners.*')">
+                        {{ __('Partner') }}
                     </x-nav-link>
                     {{-- posts --}}
                     <x-nav-link :href="route('posts.index')" :active="request()->routeIs('posts.*')">
@@ -101,10 +104,19 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.*')">
-                {{ __('Kategori') }}
+                {{ __('Layanan') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('products.index')" :active="request()->routeIs('products.*')">
                 {{ __('Produk') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('ups-brands.index')" :active="request()->routeIs('ups-brands.*')">
+                {{ __('Brand Ups') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('rental-prices.index')" :active="request()->routeIs('rental-prices.*')">
+                {{ __('Sewa') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('partners.index')" :active="request()->routeIs('partners.*')">
+                {{ __('Partner') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('posts.index')" :active="request()->routeIs('posts.*')">
                 {{ __('Postingan') }}
@@ -129,14 +141,13 @@
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
-
                     <x-responsive-nav-link :href="route('logout')"
-                        onclick="event.preventDefault();
-                                        this.closest('form').submit();">
+                        onclick="event.preventDefault(); this.closest('form').submit();">
                         {{ __('Log Out') }}
                     </x-responsive-nav-link>
                 </form>
             </div>
         </div>
     </div>
+
 </nav>

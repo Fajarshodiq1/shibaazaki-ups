@@ -6,10 +6,8 @@
 @section('meta_keywords', 'artikel, shibaazaki, ups, solusi daya, berita')
 @section('content')
     <x-hero-header title="Artikel Terbaru" subtitle="Kami menyediakan berbagai Artikel berkualitas" />
-    <x-breadcrumb :items="[['label' => 'Beranda', 'url' => route('pages.home')], ['label' => 'Artikel']]" />
-
+    <x-breadcrumb :items="[['label' => 'Beranda', 'url' => route('front.home.index')], ['label' => 'Artikel']]" />
     <x-search-bar :action="route('front.post.index')" placeholder="Cari artikel..." :collection="$posts" label="artikel" />
-
     <section class="container max-w-7xl mx-auto px-5 mb-10">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             @forelse ($posts as $item)

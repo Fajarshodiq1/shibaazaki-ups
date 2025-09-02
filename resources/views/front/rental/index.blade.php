@@ -1,13 +1,15 @@
 @extends('layouts.template')
 @section('title', 'PT Shibaazaki - Rental UPS')
-@section('meta_description', 'Temukan harga sewa UPS terbaik untuk kebutuhan bisnis Anda dengan berbagai pilihan durasi
+@section('meta_description',
+    'Temukan harga sewa UPS terbaik untuk kebutuhan bisnis Anda dengan berbagai pilihan durasi
     rental')
-@section('meta_keywords', 'rental ups, sewa ups, harga rental ups, harga sewa ups, rental ups jakarta, rental ups
+@section('meta_keywords',
+    'rental ups, sewa ups, harga rental ups, harga sewa ups, rental ups jakarta, rental ups
     bekasi, rental ups tangerang, rental ups depok, rental ups bogor')
 @section('content')
     <x-hero-header title="Rental UPS"
         subtitle="Temukan harga sewa UPS terbaik untuk kebutuhan bisnis Anda dengan berbagai pilihan durasi rental" />
-    <x-breadcrumb :items="[['label' => 'Beranda', 'url' => route('pages.home')], ['label' => 'Rental UPS']]" />
+    <x-breadcrumb :items="[['label' => 'Beranda', 'url' => route('front.home.index')], ['label' => 'Rental UPS']]" />
     <x-search-bar :action="route('rental.index')" placeholder="Cari produk rental..." :collection="$products" label="produk rental" />
     <!-- Products Section -->
     <section class="container max-w-7xl mx-auto mb-20 px-5">
@@ -74,24 +76,7 @@
                 {{ $products->links('pagination::tailwind') }}
             </div>
         @else
-            <!-- Empty State -->
-            <div class="text-center py-16">
-                <div class="max-w-md mx-auto">
-                    <div class="text-gray-500 mb-4">
-                        <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
-                            </path>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-400 mb-2">Tidak ada produk rental ditemukan</h3>
-                    <p class="text-gray-500 mb-7">Coba ubah filter pencarian Anda atau hapus beberapa filter</p>
-                    <a href="{{ route('rental.index') }}"
-                        class="bg-img-purple-to-orange text-white font-semibold py-3 px-5 rounded-full transition-colors duration-200">
-                        Reset Filter
-                    </a>
-                </div>
-            </div>
+            <x-empty-state title="Tidak ada data produk rental" message="Data akan segera tersedia disini." />
         @endif
     </section>
 @endsection

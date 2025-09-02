@@ -8,7 +8,7 @@
     'href' => null,
 ])
 
-<x-card :title="$product->name" :description="$product->description ?? $product->short_description" :image="Storage::url($product->image)" :href="$href ?? route('products.show', $product->slug)" :button-text="$showButton ? $buttonText : null" :button-href="$href ?? route('products.show', $product->slug)"
+<x-card :title="$product->name" :description="$product->description ?? $product->short_description" :image="Storage::url($product->image)" :href="$href ?? route('products.show', $product->slug)" :button-text="$showButton ? $buttonText : null" :button-href="$href ?? route('front.product.show', $product->slug)"
     button-variant="primary" :clickable-card="!$showButton" variant="product" {{ $attributes }}>
 
     @if ($showPrice && isset($product->price))

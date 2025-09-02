@@ -20,6 +20,9 @@
                         <a href="{{ route('front.profile.show') }}">Profil</a>
                     </li>
                     <li class="text-belibang-grey hover:text-belibang-light-grey transition-all duration-300">
+                        <a href="{{ route('front.category.index') }}">Layanan</a>
+                    </li>
+                    <li class="text-belibang-grey hover:text-belibang-light-grey transition-all duration-300">
                         <a href="{{ route('front.ups-brands.index') }}">UPS</a>
                     </li>
                     <li class="text-belibang-grey hover:text-belibang-light-grey transition-all duration-300">
@@ -191,20 +194,25 @@
                     class="block py-2 text-belibang-grey hover:text-white transition-colors duration-300">Beranda</a>
                 <a href="{{ route('front.profile.show') }}"
                     class="block py-2 text-belibang-grey hover:text-white transition-colors duration-300">Profil</a>
+                <a href="{{ route('front.category.index') }}"
+                    class="block py-2 text-belibang-grey hover:text-white transition-colors duration-300">Layanan</a>
                 <a href="{{ route('front.ups-brands.index') }}"
                     class="block py-2 text-belibang-grey hover:text-white transition-colors duration-300">UPS</a>
                 <a href="{{ route('rental.index') }}"
                     class="block py-2 text-belibang-grey hover:text-white transition-colors duration-300">Rental</a>
+                <a href="{{ route('front.post.index') }}"
+                    class="block py-2 text-belibang-grey hover:text-white transition-colors duration-300">Artikel</a>
                 <a href="{{ route('front.documentation.index') }}"
                     class="block py-2 text-belibang-grey hover:text-white transition-colors duration-300">Dokumentasi</a>
                 <a href="{{ url('/contact') }}"
                     class="block py-2 text-belibang-grey hover:text-white transition-colors duration-300">Contact</a>
 
-                <!-- Mobile Auth Buttons -->
+                <!-- Mobile Auth / CTA Buttons -->
                 <div class="pt-4 border-t border-belibang-dark-grey space-y-3">
-                    <a href="https://wa.me/6281234567890"
-                        class="block py-2 px-4 text-center rounded-lg text-belibang-grey border border-belibang-dark-grey hover:bg-[#2A2A2A] hover:text-white transition-all duration-300">Hubungi
-                        Kami</a>
+                    <a href="https://wa.me/6281318222618"
+                        class="block py-2 px-4 text-center rounded-lg text-belibang-grey border border-belibang-dark-grey hover:bg-[#2A2A2A] hover:text-white transition-all duration-300">
+                        Hubungi Kami
+                    </a>
                 </div>
             </div>
         </div>

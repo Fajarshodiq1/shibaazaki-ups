@@ -1,7 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <x-page-header title="Products" subtitle="Manage your product files" button-route="products.create"
-            button-text="Add New Product" />
+        <x-page-header title="Produk" subtitle="Kelola produk Anda" button-route="products.create" button-text="Tambah" />
     </x-slot>
     <main class="py-8">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">

@@ -2,7 +2,7 @@
 @section('content')
 @section('title', 'Dokumentasi - Shibaazaki')
 <x-hero-header title="Cari Dokumentasi Terbaru" subtitle="Kami menyediakan berbagai dokumentasi berkualitas" />
-<x-breadcrumb :items="[['label' => 'Beranda', 'url' => route('pages.home')], ['label' => 'Dokumentasi']]" />
+<x-breadcrumb :items="[['label' => 'Beranda', 'url' => route('front.home.index')], ['label' => 'Dokumentasi']]" />
 <x-search-bar :action="route('front.documentation.index')" placeholder="Cari dokumentasi..." :collection="$documentations" label="dokumentasi" />
 <section class="max-w-7xl mx-auto px-4 sm:px-5 pb-20">
     <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-5">
@@ -66,17 +66,8 @@
                 </main>
             </div>
         @empty
-            <div class="col-span-2 sm:col-span-2 md:col-span-3 lg:col-span-4 text-center py-12">
-                <div class="w-16 h-16 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center">
-                    <svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
-                        </path>
-                    </svg>
-                </div>
-                <h3 class="text-lg font-medium text-gray-900 mb-2">Tidak ada dokumentasi</h3>
-                <p class="text-gray-500">Dokumentasi akan muncul di sini setelah ditambahkan.</p>
-            </div>
+            <x-empty-state title="Tidak ada dokumentasi"
+                message="Dokumentasi akan muncul di sini setelah ditambahkan." />
         @endforelse
     </div>
 
