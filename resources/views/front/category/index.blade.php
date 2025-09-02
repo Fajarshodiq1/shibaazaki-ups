@@ -1,4 +1,5 @@
 @extends('layouts.template')
+@section('title', 'Layanan - PT Shibaazaki')
 @section('content')
     <header class="w-full pt-16 md:pt-[74px] h-[30vh] bg-cover bg-no-repeat bg-center relative z-0"
         style="background-image: url('https://images.pexels.com/photos/8071904/pexels-photo-8071904.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">

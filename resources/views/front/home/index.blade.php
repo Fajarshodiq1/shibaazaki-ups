@@ -1,5 +1,11 @@
 @extends('layouts.template')
-@section('title', 'Home - PT Shibaazaki Indonesia')
+@section('title', 'PT Shibaazaki - Home')
+@section('meta_title', 'PT Shibaazaki - Penjualan unit UPS, Rental UPS dan Perawatan Service Maintenance')
+@section('meta_description',
+    'PT Shibaazaki. Mitra Solusi UPS Tepercaya Anda. Kami sedang berupaya keras untuk meluncurkan situs web yang baru dan
+    lebih baik. Pantau terus untuk menjelajahi solusi PT Shibaazaki yang andal dan inovatif untuk penyediaan, penyewaan, dan
+    pemeliharaan UPS.')
+@section('meta_keywords', 'Shibaazaki, UPS, Rental, Maintenance, Jual UPS, Solutions, Trusted Partner')
 @section('content')
     <header class="w-full pt-16 md:pt-[74px] h-[50vh] sm:h-[60vh] lg:h-[70vh] bg-cover bg-no-repeat bg-center relative z-0"
         style="background-image: url('https://images.pexels.com/photos/8071904/pexels-photo-8071904.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">

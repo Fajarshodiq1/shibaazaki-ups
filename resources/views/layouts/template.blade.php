@@ -8,14 +8,14 @@
     <link rel="icon" href="{{ asset('favicon/favicon.png') }}">
     <title>@yield('title', 'PT Shibaazaki')</title>
     {{-- meta yield per page --}}
-    <meta name="title" content="@yield('meta_title', 'PT Shibaazaki')">
+    <meta name="title" content="@yield('meta_title', 'PT Shibaazaki - Penjualan unit UPS, Rental UPS dan Perawatan Service Maintenance')">
     <meta name="description" content="@yield(
         'meta_description',
-        'PT Shibaazaki. Your Trusted UPS Solutions Partner. We’re working hard to launch a new and
-                                    improved website. Stay tuned to explore PT Shibaazaki’s reliable and innovative solutions for UPS provision, rental, and
-                                    maintenance.'
+        'PT Shibaazaki. Mitra Solusi UPS Tepercaya Anda. Kami sedang berupaya keras untuk meluncurkan situs web yang baru dan
+        lebih baik. Pantau terus untuk menjelajahi solusi PT Shibaazaki yang andal dan inovatif untuk penyediaan, penyewaan, dan
+        pemeliharaan UPS.'
     )">
-    <meta name="keywords" content="@yield('meta_keywords', 'Shibaazaki, UPS, Rental, Maintenance, Jual Beli, Solutions, Trusted Partner')">
+    <meta name="keywords" content="@yield('meta_keywords', 'Shibaazaki, UPS, Rental, Maintenance, Jual UPS, Solutions, Trusted Partner')">
     <style>
         .client-logo {
             transition: all 0.3s ease;
