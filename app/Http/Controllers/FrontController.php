@@ -25,7 +25,6 @@ class FrontController extends Controller
         $upsBrands = UpsBrand::all()->take(4);
         // get posts with relation to author
         $products = Product::with(['category', 'rentalPrices'])
-            ->where('stock', '>', 0) // Hanya tampilkan yang ada stok
             ->orderBy('created_at', 'desc')
             ->paginate(8);
         $posts = Post::with('author')->latest()->take(3)->get();
@@ -35,7 +34,8 @@ class FrontController extends Controller
     // show profile
     public function ProfileShow()
     {
-        return view('front.pages.profile');
+        $partners = Partner::all();
+        return view('front.pages.profile', compact('partners'));
     }
 
         public function CategoryIndex(Request $request) 
@@ -188,7 +188,6 @@ class FrontController extends Controller
     public function RentalIndex(Request $request)
     {
         $query = Product::with(['category', 'rentalPrices'])
-            ->where('stock', '>', 0)
             ->whereHas('rentalPrices'); // Only products with rental prices
 
         // Filter by category if requested
@@ -244,7 +243,6 @@ class FrontController extends Controller
         // Get similar products (same category, different product)
         $similarProducts = Product::where('category_id', $product->category_id)
             ->where('id', '!=', $product->id)
-            ->where('stock', '>', 0)
             ->whereHas('rentalPrices')
             ->with('rentalPrices')
             ->take(4)

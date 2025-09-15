@@ -16,9 +16,8 @@ class Product extends Model
         'name',
         'brand',
         'capacity',
+        'file_upload',
         'description',
-        'price',
-        'stock',
         'slug',
         'image',
         'category_id'
@@ -59,13 +58,5 @@ class Product extends Model
     public function getFormattedPriceAttribute(): string
     {
         return 'Rp ' . number_format($this->price, 0, ',', '.');
-    }
-
-    /**
-     * Get the cheapest rental price.
-     */
-    public function getCheapestRentalPriceAttribute()
-    {
-        return $this->rentalPrices()->orderBy('price', 'asc')->first();
     }
 }

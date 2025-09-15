@@ -8,8 +8,8 @@
             <div class="flex flex-col gap-6 lg:gap-10">
                 <div class="flex items-center gap-3 shrink-0">
                     <!-- Logo -->
-                    <img src="{{ asset('assets/images/logos/logo-shibaazaki.png') }}"
-                        class="h-16 sm:h-20 w-auto object-contain" alt="logo" />
+                    <img src="{{ asset('assets/images/logos/favicon.png') }}" class="h-16  w-auto object-contain"
+                        alt="logo" />
                     <!-- Nama PT -->
                     <span class="font-semibold text-lg sm:text-xl md:text-2xl text-gray-300">
                         PT Shibaazaki

@@ -9,7 +9,7 @@ class UpsBrand extends Model
 {
     //
     protected $table = 'ups_brands';
-    protected $fillable = ['name', 'image', 'slug', 'description'];
+    protected $fillable = ['name', 'image', 'slug', 'description', 'file_upload'];
     // set attribute name to slug
     public function setNameAttribute($value)
     {

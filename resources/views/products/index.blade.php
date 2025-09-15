@@ -49,16 +49,10 @@
                     // price with currency
                 
                     [
-                        'label' => 'Price',
-                        'field' => 'price',
-                        'type' => 'currency',
-                        'nameField' => 'price',
-                    ],
-                    [
-                        'label' => 'Stock',
-                        'field' => 'stock',
-                        'type' => 'number',
-                        'nameField' => 'stock',
+                        'label' => 'File',
+                        'field' => 'file_upload',
+                        'type' => 'file',
+                        'nameField' => 'file_upload',
                     ],
                     [
                         'label' => 'Category',

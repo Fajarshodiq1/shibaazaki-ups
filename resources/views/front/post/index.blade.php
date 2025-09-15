@@ -1,7 +1,7 @@
 @extends('layouts.template')
 {{-- seo --}}
-@section('title', 'Artikel - PT Shibaazaki')
-@section('meta_title', 'Artikel - PT Shibaazaki')
+@section('title', 'PT Shibaazaki - Artikel Terbaru UPS dan solusi daya')
+@section('meta_title', 'Artikel terbaru UPS dan solusi daya - Shibaazaki')
 @section('meta_description', 'Temukan artikel terbaru seputar UPS dan solusi daya tak terputus di Shibaazaki.')
 @section('meta_keywords', 'artikel, shibaazaki, ups, solusi daya, berita')
 @section('content')

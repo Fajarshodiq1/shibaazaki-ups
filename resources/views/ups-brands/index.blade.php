@@ -32,6 +32,12 @@
                         'limit' => 100,
                     ],
                     [
+                        'label' => 'File',
+                        'field' => 'file_upload',
+                        'type' => 'file',
+                        'nameField' => 'file_upload',
+                    ],
+                    [
                         'label' => 'Created',
                         'field' => 'created_at',
                         'type' => 'date',

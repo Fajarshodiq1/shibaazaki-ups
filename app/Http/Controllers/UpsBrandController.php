@@ -25,7 +25,22 @@ class UpsBrandController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'required|string|max:5000',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'file_upload' => 'nullable|file|mimes:pdf,doc,docx,xls,xlsx,ppt,pptx,txt|max:5120',
         ]);
+        if ($request->hasFile('file_upload')) {
+            $validated['file_upload'] = $request->file('file_upload')->store('ups-brand-files', 'public');
+        }
+
+        // validate file upload
+        if ($request->hasFile('file_upload')) {
+            $validated['file_upload'] = $request->file('file_upload')->store('ups-brand-files', 'public');
+        }
+
+        // validate image
+        if ($request->hasFile('image')) {
+            // Simpan gambar ke storage dan dapatkan path-nya
+            $validated['image'] = $request->file('image')->store('ups-brands', 'public');
+        }
 
         $validated['image'] = $request->file('image')->store('ups-brands', 'public');
 
@@ -49,9 +64,20 @@ class UpsBrandController extends Controller
             'name' => 'required|string|max:255',
             'description' => 'required|string|max:5000',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'file_upload' => 'nullable|file|mimes:pdf,doc,docx,xls,xlsx,ppt,pptx,txt|max:5120',
         ]);
 
-         if ($request->hasFile('image')) {
+        // validate file upload
+        if ($request->hasFile('file_upload')) {
+            // Hapus file lama kalau ada
+            if ($upsBrand->file_upload && Storage::disk('public')->exists($upsBrand->file_upload)) {
+                Storage::disk('public')->delete($upsBrand->file_upload);
+            }
+            $validated['file_upload'] = $request->file('file_upload')->store('ups-brand-files', 'public');
+        }   
+
+        // validate image
+        if ($request->hasFile('image')) {
             // Hapus file lama kalau ada
             if ($upsBrand->image && Storage::disk('public')->exists($upsBrand->image)) {
                 Storage::disk('public')->delete($upsBrand->image);

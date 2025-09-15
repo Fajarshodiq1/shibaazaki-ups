@@ -4,8 +4,8 @@
     'Temukan harga sewa UPS terbaik untuk kebutuhan bisnis Anda dengan berbagai pilihan durasi
     rental')
 @section('meta_keywords',
-    'rental ups, sewa ups, harga rental ups, harga sewa ups, rental ups jakarta, rental ups
-    bekasi, rental ups tangerang, rental ups depok, rental ups bogor')
+    'Shibaazaki, UPS, ups pascal, Rental, Maintenance, Jual UPS, Solutions, Trusted Partner, UPS
+    Jakarta, UPS Indonesia')
 @section('content')
     <x-hero-header title="Rental UPS"
         subtitle="Temukan harga sewa UPS terbaik untuk kebutuhan bisnis Anda dengan berbagai pilihan durasi rental" />

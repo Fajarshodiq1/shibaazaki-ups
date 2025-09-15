@@ -1,11 +1,15 @@
 @extends('layouts.template')
 @section('title', 'PT Shibaazaki - Home')
-@section('meta_title', 'PT Shibaazaki - Penjualan unit UPS, Rental UPS dan Perawatan Service Maintenance')
+@section('meta_title',
+    'PT Shibaazaki - Distributor UPS PASCAL, Penjualan unit UPS, Rental UPS dan Perawatan Service
+    Maintenance')
 @section('meta_description',
     'PT Shibaazaki. Mitra Solusi UPS Tepercaya Anda. Kami sedang berupaya keras untuk meluncurkan situs web yang baru dan
     lebih baik. Pantau terus untuk menjelajahi solusi PT Shibaazaki yang andal dan inovatif untuk penyediaan, penyewaan, dan
     pemeliharaan UPS.')
-@section('meta_keywords', 'Shibaazaki, UPS, Rental, Maintenance, Jual UPS, Solutions, Trusted Partner')
+@section('meta_keywords',
+    'Shibaazaki, UPS, ups pascal, Rental, Maintenance, Jual UPS, Solutions, Trusted Partner, UPS
+    Jakarta, UPS Indonesia')
 @section('content')
     <header class="w-full pt-16 md:pt-[74px] h-[50vh] sm:h-[60vh] lg:h-[70vh] bg-cover bg-no-repeat bg-center relative z-0"
         style="background-image: url('https://images.pexels.com/photos/8071904/pexels-photo-8071904.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
@@ -16,9 +20,9 @@
             <!-- Title Section -->
             <div class="flex flex-col gap-2 sm:gap-3 text-center w-fit mt-8 sm:mt-12 lg:mt-20 z-10">
                 <h1
-                    class="font-semibold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[60px] leading-[130%] text-white px-4">
-                    <span class="block sm:inline">Rental, Maintenance &</span><br class="hidden sm:block" />
-                    <span class="block sm:inline">Jual Beli UPS</span>
+                    class="font-semibold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[60px] leading-[165%] text-white px-4 tracking-[0.02em] space-y-2">
+                    <span class="block sm:inline">PT Shibaazaki Distributor</span><br class="hidden sm:block" />
+                    <span class="block sm:inline">UPS PASCAL</span>
                 </h1>
                 <p class="text-sm sm:text-base lg:text-lg text-belibang-grey px-4">
                     UPS Terpercaya, Layanan Lengkap, Harga Bersahabat
@@ -156,7 +160,7 @@
                 <div class="p-[2px] rounded-2xl lg:rounded-3xl bg-img-purple-to-orange shadow-2xl">
                     <div class="bg-img-black-gradient rounded-2xl lg:rounded-3xl p-4 sm:p-6 lg:p-8">
                         <div class="relative overflow-hidden rounded-xl lg:rounded-2xl">
-                            <img src="https://scontent.fcgk24-2.fna.fbcdn.net/v/t39.30808-6/475301182_496416920170422_7602111244084816273_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEvOoo5WowSJWshj6geSxwhIFlJ652DcKwgWUnrnYNwrJx3_-5wDtmftJ1WuVLOsN3TIreCoxHqNxRs5OoBTLkc&_nc_ohc=dwkrzTcLTzoQ7kNvwGeh3VS&_nc_oc=AdkES85hIcwqxP1hxqRahrXYui9NQDGecmggHYMYNfMdVX7nrsVp5qPVOrH5hUegc0A&_nc_zt=23&_nc_ht=scontent.fcgk24-2.fna&_nc_gid=XYZkKOtqKu-xtC8nLyvAyg&oh=00_AfVbqgNbuooBhcf1SVoZAFCPf8S2Qn975gRZSeSJHGB5tA&oe=68AA5D90"
+                            <img src="{{ asset('assets/images/photos/hero.jpg') }}"
                                 alt="PT. Shibaazaki - Sistem UPS dan Genset"
                                 class="w-full h-48 sm:h-64 md:h-80 lg:h-96 xl:h-[450px] object-cover transition-transform duration-500 hover:scale-105">
                             <!-- Overlay gradient for better text readability if needed -->
@@ -514,14 +518,14 @@
                             <div
                                 class="w-[300px] h-[100px] rounded-full p-[18px_24px] bg-img-black-gradient group-hover:[background-image:linear-gradient(#181818,#181818)] group-active:bg-img-black transition-all duration-300 flex gap-4 items-center shrink-0">
                                 <div class="w-16 h-16 overflow-hidden flex shrink-0">
-                                    <img src="{{ asset('assets/images/logos/indofood.png') }}"
-                                        class="w-full h-full object-contain" alt="logo" />
+                                    <img src="{{ Storage::url($item->logo) }}" class="w-full h-full object-contain"
+                                        alt="logo" />
                                 </div>
                                 <div class="flex flex-col justify-center gap-1">
-                                    <p class="font-bold text-lg">PT Indofood Tbk</p>
-                                    <p class="font-semibold text-xs leading-[170%] text-belibang-grey">
-                                        Produsen makanan terbesar
-                                    </p>
+                                    <p class="font-bold text-sm">{{ $item->name }}</p>
+                                    <div class="font-semibold text-xs prose leading-[170%] text-belibang-grey">
+                                        {!! $item->description !!}
+                                    </div>
                                 </div>
                             </div>
                         </a>
@@ -537,14 +541,14 @@
                             <div
                                 class="w-[300px] h-[100px] rounded-full p-[18px_24px] bg-img-black-gradient group-hover:[background-image:linear-gradient(#181818,#181818)] group-active:bg-img-black transition-all duration-300 flex gap-4 items-center shrink-0">
                                 <div class="w-16 h-16 overflow-hidden flex shrink-0">
-                                    <img src="{{ asset('assets/images/logos/indofood.png') }}"
-                                        class="w-full h-full object-contain" alt="logo" />
+                                    <img src="{{ Storage::url($item->logo) }}" class="w-full h-full object-contain"
+                                        alt="logo" />
                                 </div>
                                 <div class="flex flex-col justify-center gap-1">
-                                    <p class="font-bold text-lg">PT Indofood Tbk</p>
-                                    <p class="font-semibold text-xs leading-[170%] text-belibang-grey">
-                                        Produsen makanan terbesar
-                                    </p>
+                                    <p class="font-bold text-sm">{{ $item->name }}</p>
+                                    <div class="font-semibold text-xs prose leading-[170%] text-belibang-grey">
+                                        {!! $item->description !!}
+                                    </div>
                                 </div>
                             </div>
                         </a>
@@ -562,14 +566,14 @@
                             <div
                                 class="w-[300px] h-[100px] rounded-full p-[18px_24px] bg-img-black-gradient group-hover:[background-image:linear-gradient(#181818,#181818)] group-active:bg-img-black transition-all duration-300 flex gap-4 items-center shrink-0">
                                 <div class="w-16 h-16 overflow-hidden flex shrink-0">
-                                    <img src="{{ asset('assets/images/logos/indofood.png') }}"
-                                        class="w-full h-full object-contain" alt="logo" />
+                                    <img src="{{ Storage::url($item->logo) }}" class="w-full h-full object-contain"
+                                        alt="logo" />
                                 </div>
                                 <div class="flex flex-col justify-center gap-1">
-                                    <p class="font-bold text-lg">PT Indofood Tbk</p>
-                                    <p class="font-semibold text-xs leading-[170%] text-belibang-grey">
-                                        Produsen makanan terbesar
-                                    </p>
+                                    <p class="font-bold text-sm">{{ $item->name }}</p>
+                                    <div class="font-semibold text-xs prose leading-[170%] text-belibang-grey">
+                                        {!! $item->description !!}
+                                    </div>
                                 </div>
                             </div>
                         </a>
@@ -585,14 +589,14 @@
                             <div
                                 class="w-[300px] h-[100px] rounded-full p-[18px_24px] bg-img-black-gradient group-hover:[background-image:linear-gradient(#181818,#181818)] group-active:bg-img-black transition-all duration-300 flex gap-4 items-center shrink-0">
                                 <div class="w-16 h-16 overflow-hidden flex shrink-0">
-                                    <img src="{{ asset('assets/images/logos/indofood.png') }}"
-                                        class="w-full h-full object-contain" alt="logo" />
+                                    <img src="{{ Storage::url($item->logo) }}" class="w-full h-full object-contain"
+                                        alt="logo" />
                                 </div>
                                 <div class="flex flex-col justify-center gap-1">
-                                    <p class="font-bold text-lg">PT Indofood Tbk</p>
-                                    <p class="font-semibold text-xs leading-[170%] text-belibang-grey">
-                                        Produsen makanan terbesar
-                                    </p>
+                                    <p class="font-bold text-sm">{{ $item->name }}</p>
+                                    <div class="font-semibold text-xs prose leading-[170%] text-belibang-grey">
+                                        {!! $item->description !!}
+                                    </div>
                                 </div>
                             </div>
                         </a>

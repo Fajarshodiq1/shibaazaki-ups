@@ -1,10 +1,11 @@
 @extends('layouts.template')
-@section('title', 'UPS Brands - Shibaazaki')
+@section('title', 'PT Shibaazaki - Merek UPS')
 @section('meta_title', 'UPS Brands - Shibaazaki')
 @section('meta_description',
     'Kami menyediakan berbagai brand UPS berkualitas untuk memenuhi kebutuhan daya tak terputus
     Anda.')
-@section('meta_keywords', 'ups, brand ups, shibaazaki, jual ups, sewa ups, rental ups, maintenance ups')
+@section('meta_keywords', 'Shibaazaki, UPS, ups pascal, Rental, Maintenance, Jual UPS, Solutions, Trusted Partner, UPS
+    Jakarta, UPS Indonesia')
 @section('content')
     <x-hero-header title="Brand UPS Kami" subtitle="Kami menyediakan berbagai brand UPS berkualitas" />
     <x-breadcrumb :items="[['label' => 'Beranda', 'url' => route('front.home.index')], ['label' => 'Brand UPS']]" />

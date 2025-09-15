@@ -72,25 +72,17 @@
                     <section class="flex w-full gap-6">
                         <div class="space-y-2 w-full">
                             <div class="flex items-center space-x-2">
-                                <i class="fas fa-dollar-sign text-indigo-500"></i>
-                                <x-input-label for="price" :value="__('Harga')" class="text-base font-medium" />
+                                <i class="fas fa-file-upload text-indigo-500"></i>
+                                <x-input-label for="file_upload" :value="__('File Produk')" class="text-base font-medium" />
                             </div>
-                            <div class="relative">
-                                <span class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">Rp</span>
-                                <x-text-input id="price" name="price" type="number" step="0.01"
-                                    :value="old('price', $product->price)" placeholder="0" class="block w-full pl-10" />
+                            <x-text-input id="file_upload" name="file_upload" type="file"
+                                class="block w-full text-lg py-3 px-4 border-2 border-gray-200 rounded-lg focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition-all duration-200" />
+                            <x-input-error :messages="$errors->get('file_upload')" class="mt-2" />
+                            <div class="flex items-center space-x-2 text-sm text-gray-500">
+                                <i class="fas fa-info-circle"></i>
+                                <span>Unggah file baru untuk mengganti file saat ini. Biarkan kosong jika tidak ingin
+                                    mengubahnya.</span>
                             </div>
-                            <x-input-error :messages="$errors->get('price')" class="mt-2" />
-                        </div>
-                        <div class="space-y-2 w-full">
-                            <div class="flex items-center space-x-2">
-                                <i class="fas fa-warehouse text-indigo-500"></i>
-                                <x-input-label for="stock" :value="__('Stok')" class="text-base font-medium" />
-                                <span class="text-red-500">*</span>
-                            </div>
-                            <x-text-input id="stock" name="stock" type="number" min="0" :value="old('stock', $product->stock)"
-                                required placeholder="Masukkan jumlah stok" class="block w-full" />
-                            <x-input-error :messages="$errors->get('stock')" class="mt-2" />
                         </div>
                     </section>
 

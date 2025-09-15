@@ -38,13 +38,20 @@ class ProductController extends Controller
             'brand' => 'nullable|string|max:255',
             'capacity' => 'nullable|string|max:255',
             'description' => 'nullable|string',
-            'price' => 'nullable|numeric',
-            'stock' => 'required|integer',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'file_upload' => 'nullable|file|mimes:pdf,doc,docx,xls,xlsx,ppt,pptx,txt|max:5120',
             'category_id' => 'required|exists:categories,id',
         ]);
 
-        // Handle image upload
+        // handling file upload 📂✅
+        if ($request->hasFile('file_upload')) {
+            $filePath = $request->file('file_upload')->store('product_files', 'public');
+            $validatedData['file_upload'] = $filePath;
+        } else {
+            $validatedData['file_upload'] = null;
+        }
+
+        // Handle image upload 🖼️✅
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('products', 'public');
             $validatedData['image'] = $imagePath;
@@ -82,13 +89,26 @@ class ProductController extends Controller
             'brand' => 'nullable|string|max:255',
             'capacity' => 'nullable|string|max:255',
             'description' => 'nullable|string',
-            'price' => 'nullable|numeric',
-            'stock' => 'required|integer',
+            'file_upload' => 'nullable|file|mimes:pdf,doc,docx,xls,xlsx,ppt,pptx,txt|max:5120',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'category_id' => 'required|exists:categories,id',
         ]);
 
-        // Handle image upload
+        // handling file upload 📂✅
+        if ($request->hasFile('file_upload')) {
+            // Delete old file if exists
+            if ($product->file_upload && Storage::disk('public')->exists($product->file_upload)) {
+                Storage::disk('public')->delete($product->file_upload);
+            }
+            
+            $filePath = $request->file('file_upload')->store('product_files', 'public');
+            $validatedData['file_upload'] = $filePath;
+        } else {
+            // Keep the existing file if no new file is uploaded
+            unset($validatedData['file_upload']);
+        }
+
+        // Handle image upload 🖼️✅
         if ($request->hasFile('image')) {
             // Delete old image if exists
             if ($product->image && Storage::disk('public')->exists($product->image)) {
@@ -115,6 +135,11 @@ class ProductController extends Controller
         // Delete associated image if exists
         if ($product->image && Storage::disk('public')->exists($product->image)) {
             Storage::disk('public')->delete($product->image);
+        }
+
+        // Delete associated file if exists
+        if ($product->file_upload && Storage::disk('public')->exists($product->file_upload)) {
+            Storage::disk('public')->delete($product->file_upload);
         }
 
         $product->delete();

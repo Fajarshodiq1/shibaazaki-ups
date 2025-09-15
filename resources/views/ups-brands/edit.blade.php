@@ -54,7 +54,22 @@
                             </div>
                         @endif
                     </section>
-
+                    <section class="flex w-full gap-6">
+                        <div class="space-y-2 w-full">
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-file-upload text-indigo-500"></i>
+                                <x-input-label for="file_upload" :value="__('File Produk')" class="text-base font-medium" />
+                            </div>
+                            <x-text-input id="file_upload" name="file_upload" type="file"
+                                class="block w-full text-lg py-3 px-4 border-2 border-gray-200 rounded-lg focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition-all duration-200" />
+                            <x-input-error :messages="$errors->get('file_upload')" class="mt-2" />
+                            <div class="flex items-center space-x-2 text-sm text-gray-500">
+                                <i class="fas fa-info-circle"></i>
+                                <span>Unggah file baru untuk mengganti file saat ini. Biarkan kosong jika tidak ingin
+                                    mengubahnya.</span>
+                            </div>
+                        </div>
+                    </section>
                     <!-- Buttons -->
                     <section
                         class="flex flex-col sm:flex-row items-center 

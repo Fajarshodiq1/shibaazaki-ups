@@ -1,7 +1,8 @@
 @extends('layouts.template')
 
 @section('title', $product->name . ' - Detail Produk')
-
+@section('meta_description', Str::limit(strip_tags($product->description), 150, '...'))
+@section('meta_keywords', $product->tags ?? 'Produk, Layanan, Rental, UPS, Pascal, Shibaazaki')
 @section('content')
     <div class="min-h-screen bg-img-black mt-20">
         <!-- Breadcrumb -->
@@ -57,21 +58,43 @@
                         </div>
                     @endif
 
-                    <!-- Price -->
-                    <div class="bg-belibang-darker-grey rounded-lg p-6">
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <p class="text-3xl font-bold text-belibang-orange">
-                                    Rp {{ number_format($product->price, 0, ',', '.') }}
-                                </p>
-                                <p class="text-sm text-belibang-grey mt-1">Harga sudah termasuk PPN</p>
-                            </div>
-                            <div class="text-right">
-                                <p class="text-sm text-belibang-grey">Stok tersedia</p>
-                                <p class="text-lg font-bold text-green-500">{{ $product->stock }} unit</p>
+                    <!-- Rental Prices -->
+                    @if ($product->rentalPrices && $product->rentalPrices->count() > 0)
+                        <div class="bg-belibang-darker-grey rounded-lg p-6">
+                            <h3 class="text-lg font-bold text-white mb-4">Harga Rental</h3>
+                            <div class="space-y-3">
+                                @foreach ($product->rentalPrices as $rentalPrice)
+                                    <div class="flex items-center justify-between p-3 bg-gray-800 rounded-lg">
+                                        <div>
+                                            <p class="text-white font-medium">{{ $rentalPrice->duration_name }}</p>
+                                            <p class="text-sm text-belibang-grey">
+                                                {{ $rentalPrice->duration_description ?? 'Durasi rental' }}</p>
+                                        </div>
+                                        <div class="text-right">
+                                            <p class="text-xl font-bold text-belibang-orange">
+                                                Rp {{ number_format($rentalPrice->price, 0, ',', '.') }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
-                    </div>
+                    @endif
+
+                    <!-- File Upload Section (if available) -->
+                    @if ($product->file_upload)
+                        <div class="bg-belibang-darker-grey rounded-lg p-6">
+                            <h3 class="text-lg font-bold text-white mb-3">Dokumen Produk</h3>
+                            <x-front-button-primary href="{{ Storage::url($product->file_upload) }}" target="_blank">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                                    </path>
+                                </svg>
+                                Download Dokumen Produk
+                            </x-front-button-primary>
+                        </div>
+                    @endif
 
                     <!-- Action Buttons -->
                     <div class="space-y-4">
@@ -82,7 +105,7 @@
                                 target="_blank">
                                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                     <path
-                                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.520-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488" />
+                                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488" />
                                 </svg>
                                 WhatsApp 1
                             </x-front-button-primary>
@@ -91,7 +114,7 @@
                                 target="_blank">
                                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                     <path
-                                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.520-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488" />
+                                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488" />
                                 </svg>
                                 WhatsApp 2
                             </x-front-button-seccondary>
@@ -101,14 +124,16 @@
             </div>
 
             <!-- Product Description -->
-            <div class="mt-16">
-                <div class="bg-belibang-darker-grey rounded-2xl p-8">
-                    <h2 class="text-2xl font-bold text-white mb-6">Deskripsi Produk</h2>
-                    <div class="prose prose-invert max-w-none w-full text-[15px] md:text-base lg:text-lg">
-                        {!! $product->description !!}
+            @if ($product->description)
+                <div class="mt-16">
+                    <div class="bg-belibang-darker-grey rounded-2xl p-8">
+                        <h2 class="text-2xl font-bold text-white mb-6">Deskripsi Produk</h2>
+                        <div class="prose prose-invert max-w-none w-full text-[15px] md:text-base lg:text-lg">
+                            {!! $product->description !!}
+                        </div>
                     </div>
                 </div>
-            </div>
+            @endif
 
             <!-- Specifications -->
             <div class="mt-8">
@@ -132,15 +157,16 @@
                             <span class="text-white font-medium">{{ $product->category->name }}</span>
                         </div>
 
-                        <div class="flex justify-between py-2 border-b border-gray-700">
-                            <span class="text-belibang-grey">Stok</span>
-                            <span class="text-white font-medium">{{ $product->stock }} unit</span>
-                        </div>
+                        @if ($product->rentalPrices && $product->rentalPrices->count() > 0)
+                            <div class="flex justify-between py-2 border-b border-gray-700">
+                                <span class="text-belibang-grey">Paket Rental</span>
+                                <span class="text-white font-medium">{{ $product->rentalPrices->count() }} paket
+                                    tersedia</span>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
-
-
         </section>
 
         <!-- Related Products -->
@@ -166,16 +192,24 @@
                                     class="absolute top-2 right-2 bg-green-600 text-white text-xs px-2 py-1 rounded-full">{{ $item->brand }}</span>
                             </div>
                             <div class="flex-1">
-                                <h3 class="font-bold text-sm mb-2">{{ $item->name }}</h3>
-                                <div class="flex items-center justify-between">
-                                    <p class="text-lg font-bold text-belibang-orange">
-                                        Rp {{ number_format($item->price, 0, ',', '.') }}
-                                    </p>
-                                    <a href="{{ route('products.show', $item->slug) }}"
-                                        class="px-3 py-1 bg-img-purple-to-orange rounded-lg text-xs font-medium hover:opacity-90 transition-opacity">
-                                        Detail
-                                    </a>
+                                <h3 class="font-bold text-sm mb-2 text-white">{{ $item->name }}</h3>
+                                @if ($item->capacity)
+                                    <p class="text-xs text-belibang-grey mb-2">{{ $item->capacity }}</p>
+                                @endif
+                                <div class="flex items-center justify-between mb-3">
+                                    @if ($item->rentalPrices && $item->rentalPrices->count() > 0)
+                                        <p class="text-xs text-belibang-orange">
+                                            Mulai dari Rp
+                                            {{ number_format($item->rentalPrices->min('price'), 0, ',', '.') }}
+                                        </p>
+                                    @else
+                                        <p class="text-xs text-belibang-grey">Hubungi untuk harga</p>
+                                    @endif
                                 </div>
+                                <a href="{{ route('front.product.show', $item->slug) }}"
+                                    class="block w-full px-3 py-2 bg-img-purple-to-orange rounded-full text-center text-xs md:text-sm font-medium lg:font-semibold text-white hover:opacity-90 transition-opacity">
+                                    Detail
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -185,36 +219,4 @@
             </div>
         </section>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const quantityInput = document.getElementById('quantity');
-            const decreaseBtn = document.getElementById('decrease-qty');
-            const increaseBtn = document.getElementById('increase-qty');
-            const maxStock = {{ $product->stock }};
-
-            decreaseBtn.addEventListener('click', function() {
-                let currentValue = parseInt(quantityInput.value);
-                if (currentValue > 1) {
-                    quantityInput.value = currentValue - 1;
-                }
-            });
-
-            increaseBtn.addEventListener('click', function() {
-                let currentValue = parseInt(quantityInput.value);
-                if (currentValue < maxStock) {
-                    quantityInput.value = currentValue + 1;
-                }
-            });
-
-            quantityInput.addEventListener('change', function() {
-                let value = parseInt(this.value);
-                if (value < 1) {
-                    this.value = 1;
-                } else if (value > maxStock) {
-                    this.value = maxStock;
-                }
-            });
-        });
-    </script>
 @endsection

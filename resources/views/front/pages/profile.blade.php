@@ -66,8 +66,8 @@
                 <div class="p-[1px] rounded-2xl bg-img-purple-to-orange">
                     <div
                         class="bg-img-black-gradient rounded-2xl p-4 sm:p-6 lg:p-8 h-[250px] sm:h-[350px] lg:h-[500px] flex items-center justify-center">
-                        <img src="https://scontent.fcgk24-2.fna.fbcdn.net/v/t39.30808-6/475301182_496416920170422_7602111244084816273_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEvOoo5WowSJWshj6geSxwhIFlJ652DcKwgWUnrnYNwrJx3_-5wDtmftJ1WuVLOsN3TIreCoxHqNxRs5OoBTLkc&_nc_ohc=dwkrzTcLTzoQ7kNvwGeh3VS&_nc_oc=AdkES85hIcwqxP1hxqRahrXYui9NQDGecmggHYMYNfMdVX7nrsVp5qPVOrH5hUegc0A&_nc_zt=23&_nc_ht=scontent.fcgk24-2.fna&_nc_gid=XYZkKOtqKu-xtC8nLyvAyg&oh=00_AfVbqgNbuooBhcf1SVoZAFCPf8S2Qn975gRZSeSJHGB5tA&oe=68AA5D90"
-                            alt="UPS Shibaazaki" class="w-full h-full object-cover rounded-2xl">
+                        <img src="{{ asset('assets/images/photos/hero.jpg') }}" alt="UPS Shibaazaki"
+                            class="w-full h-full object-cover rounded-2xl">
                     </div>
                 </div>
             </div>
@@ -170,533 +170,104 @@
         </div>
     </section>
     <section id="Tool" class="mb-[102px] flex flex-col gap-8">
+        <div class="container max-w-[1230px] mx-auto px-5">
+            <x-heading1>Partner Kami 👨‍💻</x-heading1>
+        </div>
         <div class="tools-logos w-full overflow-hidden flex flex-col gap-5">
             <div class="group/slider flex flex-nowrap w-max items-center">
                 <div
                     class="logo-container animate-[slide_50s_linear_infinite] group-hover/slider:pause-animate flex gap-5 pl-5 items-center flex-nowrap">
-                    <a href=""
-                        class="group tool-card w-fit h-fit p-[1px] rounded-full bg-img-transparent hover:bg-img-purple-to-orange transition-all duration-300">
-                        <div
-                            class="w-[300px] h-[100px] rounded-full p-[18px_24px] bg-img-black-gradient group-hover:[background-image:linear-gradient(#181818,#181818)] group-active:bg-img-black transition-all duration-300 flex gap-4 items-center shrink-0">
-                            <div class="w-16 h-16 overflow-hidden flex shrink-0">
-                                <img src="{{ asset('assets/images/logos/indofood.png') }}"
-                                    class="w-full h-full object-contain" alt="logo" />
+                    @forelse ($partners as $item)
+                        <a href=""
+                            class="group tool-card w-fit h-fit p-[1px] rounded-full bg-img-transparent hover:bg-img-purple-to-orange transition-all duration-300">
+                            <div
+                                class="w-[300px] h-[100px] rounded-full p-[18px_24px] bg-img-black-gradient group-hover:[background-image:linear-gradient(#181818,#181818)] group-active:bg-img-black transition-all duration-300 flex gap-4 items-center shrink-0">
+                                <div class="w-16 h-16 overflow-hidden flex shrink-0">
+                                    <img src="{{ Storage::url($item->logo) }}" class="w-full h-full object-contain"
+                                        alt="logo" />
+                                </div>
+                                <div class="flex flex-col justify-center gap-1">
+                                    <p class="font-bold text-sm">{{ $item->name }}</p>
+                                    <div class="font-semibold text-xs prose leading-[170%] text-belibang-grey">
+                                        {!! $item->description !!}
+                                    </div>
+                                </div>
                             </div>
-                            <div class="flex flex-col justify-center gap-1">
-                                <p class="font-bold text-lg">PT Indofood Tbk</p>
-                                <p class="font-semibold text-xs leading-[170%] text-belibang-grey">
-                                    Produsen makanan terbesar
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href=""
-                        class="group tool-card w-fit h-fit p-[1px] rounded-full bg-img-transparent hover:bg-img-purple-to-orange transition-all duration-300">
-                        <div
-                            class="w-[300px] h-[100px] rounded-full p-[18px_24px] bg-img-black-gradient group-hover:[background-image:linear-gradient(#181818,#181818)] group-active:bg-img-black transition-all duration-300 flex gap-4 items-center shrink-0">
-                            <div class="w-16 h-16 overflow-hidden flex shrink-0">
-                                <img src="{{ asset('assets/images/logos/Logo Bank Bukopin.png') }}"
-                                    class="w-full h-full object-contain" alt="logo" />
-                            </div>
-                            <div class="flex flex-col justify-center gap-1">
-                                <p class="font-bold text-lg">Bank Bukopin</p>
-                                <p class="font-semibold text-xs leading-[170%] text-belibang-grey">
-                                    Perbankan dan Keuangan
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href=""
-                        class="group tool-card w-fit h-fit p-[1px] rounded-full bg-img-transparent hover:bg-img-purple-to-orange transition-all duration-300">
-                        <div
-                            class="w-[300px] h-[100px] rounded-full p-[18px_24px] bg-img-black-gradient group-hover:[background-image:linear-gradient(#181818,#181818)] group-active:bg-img-black transition-all duration-300 flex gap-4 items-center shrink-0">
-                            <div class="w-16 h-16 overflow-hidden flex shrink-0">
-                                <img src="{{ asset('assets/images/logos/bca-bank-central-asia-logo.svg') }}"
-                                    class="w-full h-full object-contain" alt="logo" />
-                            </div>
-                            <div class="flex flex-col justify-center gap-1">
-                                <p class="font-bold text-lg">BCA</p>
-                                <p class="font-semibold text-xs leading-[170%] text-belibang-grey">
-                                    Perbankan dan Keuangan
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href=""
-                        class="group tool-card w-fit h-fit p-[1px] rounded-full bg-img-transparent hover:bg-img-purple-to-orange transition-all duration-300">
-                        <div
-                            class="w-[300px] h-[100px] rounded-full p-[18px_24px] bg-img-black-gradient group-hover:[background-image:linear-gradient(#181818,#181818)] group-active:bg-img-black transition-all duration-300 flex gap-4 items-center shrink-0">
-                            <div class="w-16 h-16 overflow-hidden flex shrink-0">
-                                <img src="{{ asset('assets/images/logos/Pertamina.png') }}"
-                                    class="w-full h-full object-contain" alt="logo" />
-                            </div>
-                            <div class="flex flex-col justify-center gap-1">
-                                <p class="font-bold text-lg">Pertamina</p>
-                                <p class="font-semibold text-xs leading-[170%] text-belibang-grey">
-                                    Perusahaan Minyak dan Gas Bumi
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href=""
-                        class="group tool-card w-fit h-fit p-[1px] rounded-full bg-img-transparent hover:bg-img-purple-to-orange transition-all duration-300">
-                        <div
-                            class="w-[300px] h-[100px] rounded-full p-[18px_24px] bg-img-black-gradient group-hover:[background-image:linear-gradient(#181818,#181818)] group-active:bg-img-black transition-all duration-300 flex gap-4 items-center shrink-0">
-                            <div class="w-16 h-16 overflow-hidden flex shrink-0">
-                                <img src="{{ asset('assets/images/logos/bri-logo-freelogovectors.net_.png') }}"
-                                    class="w-full h-full object-contain" alt="logo" />
-                            </div>
-                            <div class="flex flex-col justify-center gap-1">
-                                <p class="font-bold text-lg">BRI</p>
-                                <p class="font-semibold text-xs leading-[170%] text-belibang-grey">
-                                    Perbankan dan Keuangan
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href=""
-                        class="group tool-card w-fit h-fit p-[1px] rounded-full bg-img-transparent hover:bg-img-purple-to-orange transition-all duration-300">
-                        <div
-                            class="w-[300px] h-[100px] rounded-full p-[18px_24px] bg-img-black-gradient group-hover:[background-image:linear-gradient(#181818,#181818)] group-active:bg-img-black transition-all duration-300 flex gap-4 items-center shrink-0">
-                            <div class="w-16 h-16 overflow-hidden flex shrink-0">
-                                <img src="{{ asset('assets/images/logos/lg-65571292f0011-bsi.png') }}"
-                                    class="w-full h-full object-contain" alt="logo" />
-                            </div>
-                            <div class="flex flex-col justify-center gap-1">
-                                <p class="font-bold text-lg">BSI</p>
-                                <p class="font-semibold text-xs leading-[170%] text-belibang-grey">
-                                    Perbankan dan Keuangan
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href=""
-                        class="group tool-card w-fit h-fit p-[1px] rounded-full bg-img-transparent hover:bg-img-purple-to-orange transition-all duration-300">
-                        <div
-                            class="w-[300px] h-[100px] rounded-full p-[18px_24px] bg-img-black-gradient group-hover:[background-image:linear-gradient(#181818,#181818)] group-active:bg-img-black transition-all duration-300 flex gap-4 items-center shrink-0">
-                            <div class="w-16 h-16 overflow-hidden flex shrink-0">
-                                <img src="{{ asset('assets/images/logos/Bank bjb [siklogo.blogspot.com].png') }}"
-                                    class="w-full h-full object-contain" alt="logo" />
-                            </div>
-                            <div class="flex flex-col justify-center gap-1">
-                                <p class="font-bold text-lg">Bank BJB</p>
-                                <p class="font-semibold text-xs leading-[170%] text-belibang-grey">
-                                    Perbankan dan Keuangan
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href=""
-                        class="group tool-card w-fit h-fit p-[1px] rounded-full bg-img-transparent hover:bg-img-purple-to-orange transition-all duration-300">
-                        <div
-                            class="w-[300px] h-[100px] rounded-full p-[18px_24px] bg-img-black-gradient group-hover:[background-image:linear-gradient(#181818,#181818)] group-active:bg-img-black transition-all duration-300 flex gap-4 items-center shrink-0">
-                            <div class="w-16 h-16 overflow-hidden flex shrink-0">
-                                <img src="{{ asset('assets/images/logos/mandiri.png') }}"
-                                    class="w-full h-full object-contain" alt="logo" />
-                            </div>
-                            <div class="flex flex-col justify-center gap-1">
-                                <p class="font-bold text-lg">Mandiri</p>
-                                <p class="font-semibold text-xs leading-[170%] text-belibang-grey">
-                                    Perbankan dan Keuangan
-                                </p>
-                            </div>
-                        </div>
-                    </a>
+                        </a>
+                    @empty
+                        <x-empty-state title="Tidak ada data partner" message="Data akan segera tersedia disini." />
+                    @endforelse
                 </div>
                 <div
                     class="logo-container animate-[slide_50s_linear_infinite] group-hover/slider:pause-animate flex gap-5 pl-5 items-center flex-nowrap">
-                    <a href=""
-                        class="group tool-card w-fit h-fit p-[1px] rounded-full bg-img-transparent hover:bg-img-purple-to-orange transition-all duration-300">
-                        <div
-                            class="w-[300px] h-[100px] rounded-full p-[18px_24px] bg-img-black-gradient group-hover:[background-image:linear-gradient(#181818,#181818)] group-active:bg-img-black transition-all duration-300 flex gap-4 items-center shrink-0">
-                            <div class="w-16 h-16 overflow-hidden flex shrink-0">
-                                <img src="{{ asset('assets/images/logos/indofood.png') }}"
-                                    class="w-full h-full object-contain" alt="logo" />
+                    @forelse ($partners as $item)
+                        <a href=""
+                            class="group tool-card w-fit h-fit p-[1px] rounded-full bg-img-transparent hover:bg-img-purple-to-orange transition-all duration-300">
+                            <div
+                                class="w-[300px] h-[100px] rounded-full p-[18px_24px] bg-img-black-gradient group-hover:[background-image:linear-gradient(#181818,#181818)] group-active:bg-img-black transition-all duration-300 flex gap-4 items-center shrink-0">
+                                <div class="w-16 h-16 overflow-hidden flex shrink-0">
+                                    <img src="{{ Storage::url($item->logo) }}" class="w-full h-full object-contain"
+                                        alt="logo" />
+                                </div>
+                                <div class="flex flex-col justify-center gap-1">
+                                    <p class="font-bold text-sm">{{ $item->name }}</p>
+                                    <div class="font-semibold text-xs prose leading-[170%] text-belibang-grey">
+                                        {!! $item->description !!}
+                                    </div>
+                                </div>
                             </div>
-                            <div class="flex flex-col justify-center gap-1">
-                                <p class="font-bold text-lg">PT Indofood Tbk</p>
-                                <p class="font-semibold text-xs leading-[170%] text-belibang-grey">
-                                    Produsen makanan terbesar
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href=""
-                        class="group tool-card w-fit h-fit p-[1px] rounded-full bg-img-transparent hover:bg-img-purple-to-orange transition-all duration-300">
-                        <div
-                            class="w-[300px] h-[100px] rounded-full p-[18px_24px] bg-img-black-gradient group-hover:[background-image:linear-gradient(#181818,#181818)] group-active:bg-img-black transition-all duration-300 flex gap-4 items-center shrink-0">
-                            <div class="w-16 h-16 overflow-hidden flex shrink-0">
-                                <img src="{{ asset('assets/images/logos/Logo Bank Bukopin.png') }}"
-                                    class="w-full h-full object-contain" alt="logo" />
-                            </div>
-                            <div class="flex flex-col justify-center gap-1">
-                                <p class="font-bold text-lg">Bank Bukopin</p>
-                                <p class="font-semibold text-xs leading-[170%] text-belibang-grey">
-                                    Perbankan dan Keuangan
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href=""
-                        class="group tool-card w-fit h-fit p-[1px] rounded-full bg-img-transparent hover:bg-img-purple-to-orange transition-all duration-300">
-                        <div
-                            class="w-[300px] h-[100px] rounded-full p-[18px_24px] bg-img-black-gradient group-hover:[background-image:linear-gradient(#181818,#181818)] group-active:bg-img-black transition-all duration-300 flex gap-4 items-center shrink-0">
-                            <div class="w-16 h-16 overflow-hidden flex shrink-0">
-                                <img src="{{ asset('assets/images/logos/bca-bank-central-asia-logo.svg') }}"
-                                    class="w-full h-full object-contain" alt="logo" />
-                            </div>
-                            <div class="flex flex-col justify-center gap-1">
-                                <p class="font-bold text-lg">BCA</p>
-                                <p class="font-semibold text-xs leading-[170%] text-belibang-grey">
-                                    Perbankan dan Keuangan
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href=""
-                        class="group tool-card w-fit h-fit p-[1px] rounded-full bg-img-transparent hover:bg-img-purple-to-orange transition-all duration-300">
-                        <div
-                            class="w-[300px] h-[100px] rounded-full p-[18px_24px] bg-img-black-gradient group-hover:[background-image:linear-gradient(#181818,#181818)] group-active:bg-img-black transition-all duration-300 flex gap-4 items-center shrink-0">
-                            <div class="w-16 h-16 overflow-hidden flex shrink-0">
-                                <img src="{{ asset('assets/images/logos/Pertamina.png') }}"
-                                    class="w-full h-full object-contain" alt="logo" />
-                            </div>
-                            <div class="flex flex-col justify-center gap-1">
-                                <p class="font-bold text-lg">Pertamina</p>
-                                <p class="font-semibold text-xs leading-[170%] text-belibang-grey">
-                                    Perusahaan Minyak dan Gas Bumi
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href=""
-                        class="group tool-card w-fit h-fit p-[1px] rounded-full bg-img-transparent hover:bg-img-purple-to-orange transition-all duration-300">
-                        <div
-                            class="w-[300px] h-[100px] rounded-full p-[18px_24px] bg-img-black-gradient group-hover:[background-image:linear-gradient(#181818,#181818)] group-active:bg-img-black transition-all duration-300 flex gap-4 items-center shrink-0">
-                            <div class="w-16 h-16 overflow-hidden flex shrink-0">
-                                <img src="{{ asset('assets/images/logos/bri-logo-freelogovectors.net_.png') }}"
-                                    class="w-full h-full object-contain" alt="logo" />
-                            </div>
-                            <div class="flex flex-col justify-center gap-1">
-                                <p class="font-bold text-lg">BRI</p>
-                                <p class="font-semibold text-xs leading-[170%] text-belibang-grey">
-                                    Perbankan dan Keuangan
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href=""
-                        class="group tool-card w-fit h-fit p-[1px] rounded-full bg-img-transparent hover:bg-img-purple-to-orange transition-all duration-300">
-                        <div
-                            class="w-[300px] h-[100px] rounded-full p-[18px_24px] bg-img-black-gradient group-hover:[background-image:linear-gradient(#181818,#181818)] group-active:bg-img-black transition-all duration-300 flex gap-4 items-center shrink-0">
-                            <div class="w-16 h-16 overflow-hidden flex shrink-0">
-                                <img src="{{ asset('assets/images/logos/lg-65571292f0011-bsi.png') }}"
-                                    class="w-full h-full object-contain" alt="logo" />
-                            </div>
-                            <div class="flex flex-col justify-center gap-1">
-                                <p class="font-bold text-lg">BSI</p>
-                                <p class="font-semibold text-xs leading-[170%] text-belibang-grey">
-                                    Perbankan dan Keuangan
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href=""
-                        class="group tool-card w-fit h-fit p-[1px] rounded-full bg-img-transparent hover:bg-img-purple-to-orange transition-all duration-300">
-                        <div
-                            class="w-[300px] h-[100px] rounded-full p-[18px_24px] bg-img-black-gradient group-hover:[background-image:linear-gradient(#181818,#181818)] group-active:bg-img-black transition-all duration-300 flex gap-4 items-center shrink-0">
-                            <div class="w-16 h-16 overflow-hidden flex shrink-0">
-                                <img src="{{ asset('assets/images/logos/Bank bjb [siklogo.blogspot.com].png') }}"
-                                    class="w-full h-full object-contain" alt="logo" />
-                            </div>
-                            <div class="flex flex-col justify-center gap-1">
-                                <p class="font-bold text-lg">Bank BJB</p>
-                                <p class="font-semibold text-xs leading-[170%] text-belibang-grey">
-                                    Perbankan dan Keuangan
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href=""
-                        class="group tool-card w-fit h-fit p-[1px] rounded-full bg-img-transparent hover:bg-img-purple-to-orange transition-all duration-300">
-                        <div
-                            class="w-[300px] h-[100px] rounded-full p-[18px_24px] bg-img-black-gradient group-hover:[background-image:linear-gradient(#181818,#181818)] group-active:bg-img-black transition-all duration-300 flex gap-4 items-center shrink-0">
-                            <div class="w-16 h-16 overflow-hidden flex shrink-0">
-                                <img src="{{ asset('assets/images/logos/mandiri.png') }}"
-                                    class="w-full h-full object-contain" alt="logo" />
-                            </div>
-                            <div class="flex flex-col justify-center gap-1">
-                                <p class="font-bold text-lg">Mandiri</p>
-                                <p class="font-semibold text-xs leading-[170%] text-belibang-grey">
-                                    Perbankan dan Keuangan
-                                </p>
-                            </div>
-                        </div>
-                    </a>
+                        </a>
+                    @empty
+                        <x-empty-state title="Tidak ada data partner" message="Data akan segera tersedia disini." />
+                    @endforelse
                 </div>
             </div>
             <div class="group/slider flex flex-nowrap w-max items-center">
                 <div
                     class="logo-container animate-[slideToR_50s_linear_infinite] group-hover/slider:pause-animate flex gap-5 pl-5 items-center flex-nowrap">
-                    <a href=""
-                        class="group tool-card w-fit h-fit p-[1px] rounded-full bg-img-transparent hover:bg-img-purple-to-orange transition-all duration-300">
-                        <div
-                            class="w-[300px] h-[100px] rounded-full p-[18px_24px] bg-img-black-gradient group-hover:[background-image:linear-gradient(#181818,#181818)] group-active:bg-img-black transition-all duration-300 flex gap-4 items-center shrink-0">
-                            <div class="w-16 h-16 overflow-hidden flex shrink-0">
-                                <img src="{{ asset('assets/images/logos/indofood.png') }}"
-                                    class="w-full h-full object-contain" alt="logo" />
+                    @forelse ($partners as $item)
+                        <a href=""
+                            class="group tool-card w-fit h-fit p-[1px] rounded-full bg-img-transparent hover:bg-img-purple-to-orange transition-all duration-300">
+                            <div
+                                class="w-[300px] h-[100px] rounded-full p-[18px_24px] bg-img-black-gradient group-hover:[background-image:linear-gradient(#181818,#181818)] group-active:bg-img-black transition-all duration-300 flex gap-4 items-center shrink-0">
+                                <div class="w-16 h-16 overflow-hidden flex shrink-0">
+                                    <img src="{{ Storage::url($item->logo) }}" class="w-full h-full object-contain"
+                                        alt="logo" />
+                                </div>
+                                <div class="flex flex-col justify-center gap-1">
+                                    <p class="font-bold text-sm">{{ $item->name }}</p>
+                                    <div class="font-semibold text-xs prose leading-[170%] text-belibang-grey">
+                                        {!! $item->description !!}
+                                    </div>
+                                </div>
                             </div>
-                            <div class="flex flex-col justify-center gap-1">
-                                <p class="font-bold text-lg">PT Indofood Tbk</p>
-                                <p class="font-semibold text-xs leading-[170%] text-belibang-grey">
-                                    Produsen makanan terbesar
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href=""
-                        class="group tool-card w-fit h-fit p-[1px] rounded-full bg-img-transparent hover:bg-img-purple-to-orange transition-all duration-300">
-                        <div
-                            class="w-[300px] h-[100px] rounded-full p-[18px_24px] bg-img-black-gradient group-hover:[background-image:linear-gradient(#181818,#181818)] group-active:bg-img-black transition-all duration-300 flex gap-4 items-center shrink-0">
-                            <div class="w-16 h-16 overflow-hidden flex shrink-0">
-                                <img src="{{ asset('assets/images/logos/Logo Bank Bukopin.png') }}"
-                                    class="w-full h-full object-contain" alt="logo" />
-                            </div>
-                            <div class="flex flex-col justify-center gap-1">
-                                <p class="font-bold text-lg">Bank Bukopin</p>
-                                <p class="font-semibold text-xs leading-[170%] text-belibang-grey">
-                                    Perbankan dan Keuangan
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href=""
-                        class="group tool-card w-fit h-fit p-[1px] rounded-full bg-img-transparent hover:bg-img-purple-to-orange transition-all duration-300">
-                        <div
-                            class="w-[300px] h-[100px] rounded-full p-[18px_24px] bg-img-black-gradient group-hover:[background-image:linear-gradient(#181818,#181818)] group-active:bg-img-black transition-all duration-300 flex gap-4 items-center shrink-0">
-                            <div class="w-16 h-16 overflow-hidden flex shrink-0">
-                                <img src="{{ asset('assets/images/logos/bca-bank-central-asia-logo.svg') }}"
-                                    class="w-full h-full object-contain" alt="logo" />
-                            </div>
-                            <div class="flex flex-col justify-center gap-1">
-                                <p class="font-bold text-lg">BCA</p>
-                                <p class="font-semibold text-xs leading-[170%] text-belibang-grey">
-                                    Perbankan dan Keuangan
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href=""
-                        class="group tool-card w-fit h-fit p-[1px] rounded-full bg-img-transparent hover:bg-img-purple-to-orange transition-all duration-300">
-                        <div
-                            class="w-[300px] h-[100px] rounded-full p-[18px_24px] bg-img-black-gradient group-hover:[background-image:linear-gradient(#181818,#181818)] group-active:bg-img-black transition-all duration-300 flex gap-4 items-center shrink-0">
-                            <div class="w-16 h-16 overflow-hidden flex shrink-0">
-                                <img src="{{ asset('assets/images/logos/Pertamina.png') }}"
-                                    class="w-full h-full object-contain" alt="logo" />
-                            </div>
-                            <div class="flex flex-col justify-center gap-1">
-                                <p class="font-bold text-lg">Pertamina</p>
-                                <p class="font-semibold text-xs leading-[170%] text-belibang-grey">
-                                    Perusahaan Minyak dan Gas Bumi
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href=""
-                        class="group tool-card w-fit h-fit p-[1px] rounded-full bg-img-transparent hover:bg-img-purple-to-orange transition-all duration-300">
-                        <div
-                            class="w-[300px] h-[100px] rounded-full p-[18px_24px] bg-img-black-gradient group-hover:[background-image:linear-gradient(#181818,#181818)] group-active:bg-img-black transition-all duration-300 flex gap-4 items-center shrink-0">
-                            <div class="w-16 h-16 overflow-hidden flex shrink-0">
-                                <img src="{{ asset('assets/images/logos/bri-logo-freelogovectors.net_.png') }}"
-                                    class="w-full h-full object-contain" alt="logo" />
-                            </div>
-                            <div class="flex flex-col justify-center gap-1">
-                                <p class="font-bold text-lg">BRI</p>
-                                <p class="font-semibold text-xs leading-[170%] text-belibang-grey">
-                                    Perbankan dan Keuangan
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href=""
-                        class="group tool-card w-fit h-fit p-[1px] rounded-full bg-img-transparent hover:bg-img-purple-to-orange transition-all duration-300">
-                        <div
-                            class="w-[300px] h-[100px] rounded-full p-[18px_24px] bg-img-black-gradient group-hover:[background-image:linear-gradient(#181818,#181818)] group-active:bg-img-black transition-all duration-300 flex gap-4 items-center shrink-0">
-                            <div class="w-16 h-16 overflow-hidden flex shrink-0">
-                                <img src="{{ asset('assets/images/logos/lg-65571292f0011-bsi.png') }}"
-                                    class="w-full h-full object-contain" alt="logo" />
-                            </div>
-                            <div class="flex flex-col justify-center gap-1">
-                                <p class="font-bold text-lg">BSI</p>
-                                <p class="font-semibold text-xs leading-[170%] text-belibang-grey">
-                                    Perbankan dan Keuangan
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href=""
-                        class="group tool-card w-fit h-fit p-[1px] rounded-full bg-img-transparent hover:bg-img-purple-to-orange transition-all duration-300">
-                        <div
-                            class="w-[300px] h-[100px] rounded-full p-[18px_24px] bg-img-black-gradient group-hover:[background-image:linear-gradient(#181818,#181818)] group-active:bg-img-black transition-all duration-300 flex gap-4 items-center shrink-0">
-                            <div class="w-16 h-16 overflow-hidden flex shrink-0">
-                                <img src="{{ asset('assets/images/logos/Bank bjb [siklogo.blogspot.com].png') }}"
-                                    class="w-full h-full object-contain" alt="logo" />
-                            </div>
-                            <div class="flex flex-col justify-center gap-1">
-                                <p class="font-bold text-lg">Bank BJB</p>
-                                <p class="font-semibold text-xs leading-[170%] text-belibang-grey">
-                                    Perbankan dan Keuangan
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href=""
-                        class="group tool-card w-fit h-fit p-[1px] rounded-full bg-img-transparent hover:bg-img-purple-to-orange transition-all duration-300">
-                        <div
-                            class="w-[300px] h-[100px] rounded-full p-[18px_24px] bg-img-black-gradient group-hover:[background-image:linear-gradient(#181818,#181818)] group-active:bg-img-black transition-all duration-300 flex gap-4 items-center shrink-0">
-                            <div class="w-16 h-16 overflow-hidden flex shrink-0">
-                                <img src="{{ asset('assets/images/logos/mandiri.png') }}"
-                                    class="w-full h-full object-contain" alt="logo" />
-                            </div>
-                            <div class="flex flex-col justify-center gap-1">
-                                <p class="font-bold text-lg">Mandiri</p>
-                                <p class="font-semibold text-xs leading-[170%] text-belibang-grey">
-                                    Perbankan dan Keuangan
-                                </p>
-                            </div>
-                        </div>
-                    </a>
+                        </a>
+                    @empty
+                        <x-empty-state title="Tidak ada data partner" message="Data akan segera tersedia disini." />
+                    @endforelse
                 </div>
                 <div
                     class="logo-container animate-[slideToR_50s_linear_infinite] group-hover/slider:pause-animate flex gap-5 pl-5 items-center flex-nowrap">
-                    <a href=""
-                        class="group tool-card w-fit h-fit p-[1px] rounded-full bg-img-transparent hover:bg-img-purple-to-orange transition-all duration-300">
-                        <div
-                            class="w-[300px] h-[100px] rounded-full p-[18px_24px] bg-img-black-gradient group-hover:[background-image:linear-gradient(#181818,#181818)] group-active:bg-img-black transition-all duration-300 flex gap-4 items-center shrink-0">
-                            <div class="w-16 h-16 overflow-hidden flex shrink-0">
-                                <img src="{{ asset('assets/images/logos/indofood.png') }}"
-                                    class="w-full h-full object-contain" alt="logo" />
+                    @forelse ($partners as $item)
+                        <a href=""
+                            class="group tool-card w-fit h-fit p-[1px] rounded-full bg-img-transparent hover:bg-img-purple-to-orange transition-all duration-300">
+                            <div
+                                class="w-[300px] h-[100px] rounded-full p-[18px_24px] bg-img-black-gradient group-hover:[background-image:linear-gradient(#181818,#181818)] group-active:bg-img-black transition-all duration-300 flex gap-4 items-center shrink-0">
+                                <div class="w-16 h-16 overflow-hidden flex shrink-0">
+                                    <img src="{{ Storage::url($item->logo) }}" class="w-full h-full object-contain"
+                                        alt="logo" />
+                                </div>
+                                <div class="flex flex-col justify-center gap-1">
+                                    <p class="font-bold text-sm">{{ $item->name }}</p>
+                                    <div class="font-semibold text-xs prose leading-[170%] text-belibang-grey">
+                                        {!! $item->description !!}
+                                    </div>
+                                </div>
                             </div>
-                            <div class="flex flex-col justify-center gap-1">
-                                <p class="font-bold text-lg">PT Indofood Tbk</p>
-                                <p class="font-semibold text-xs leading-[170%] text-belibang-grey">
-                                    Produsen makanan terbesar
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href=""
-                        class="group tool-card w-fit h-fit p-[1px] rounded-full bg-img-transparent hover:bg-img-purple-to-orange transition-all duration-300">
-                        <div
-                            class="w-[300px] h-[100px] rounded-full p-[18px_24px] bg-img-black-gradient group-hover:[background-image:linear-gradient(#181818,#181818)] group-active:bg-img-black transition-all duration-300 flex gap-4 items-center shrink-0">
-                            <div class="w-16 h-16 overflow-hidden flex shrink-0">
-                                <img src="{{ asset('assets/images/logos/Logo Bank Bukopin.png') }}"
-                                    class="w-full h-full object-contain" alt="logo" />
-                            </div>
-                            <div class="flex flex-col justify-center gap-1">
-                                <p class="font-bold text-lg">Bank Bukopin</p>
-                                <p class="font-semibold text-xs leading-[170%] text-belibang-grey">
-                                    Perbankan dan Keuangan
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href=""
-                        class="group tool-card w-fit h-fit p-[1px] rounded-full bg-img-transparent hover:bg-img-purple-to-orange transition-all duration-300">
-                        <div
-                            class="w-[300px] h-[100px] rounded-full p-[18px_24px] bg-img-black-gradient group-hover:[background-image:linear-gradient(#181818,#181818)] group-active:bg-img-black transition-all duration-300 flex gap-4 items-center shrink-0">
-                            <div class="w-16 h-16 overflow-hidden flex shrink-0">
-                                <img src="{{ asset('assets/images/logos/bca-bank-central-asia-logo.svg') }}"
-                                    class="w-full h-full object-contain" alt="logo" />
-                            </div>
-                            <div class="flex flex-col justify-center gap-1">
-                                <p class="font-bold text-lg">BCA</p>
-                                <p class="font-semibold text-xs leading-[170%] text-belibang-grey">
-                                    Perbankan dan Keuangan
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href=""
-                        class="group tool-card w-fit h-fit p-[1px] rounded-full bg-img-transparent hover:bg-img-purple-to-orange transition-all duration-300">
-                        <div
-                            class="w-[300px] h-[100px] rounded-full p-[18px_24px] bg-img-black-gradient group-hover:[background-image:linear-gradient(#181818,#181818)] group-active:bg-img-black transition-all duration-300 flex gap-4 items-center shrink-0">
-                            <div class="w-16 h-16 overflow-hidden flex shrink-0">
-                                <img src="{{ asset('assets/images/logos/Pertamina.png') }}"
-                                    class="w-full h-full object-contain" alt="logo" />
-                            </div>
-                            <div class="flex flex-col justify-center gap-1">
-                                <p class="font-bold text-lg">Pertamina</p>
-                                <p class="font-semibold text-xs leading-[170%] text-belibang-grey">
-                                    Perusahaan Minyak dan Gas Bumi
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href=""
-                        class="group tool-card w-fit h-fit p-[1px] rounded-full bg-img-transparent hover:bg-img-purple-to-orange transition-all duration-300">
-                        <div
-                            class="w-[300px] h-[100px] rounded-full p-[18px_24px] bg-img-black-gradient group-hover:[background-image:linear-gradient(#181818,#181818)] group-active:bg-img-black transition-all duration-300 flex gap-4 items-center shrink-0">
-                            <div class="w-16 h-16 overflow-hidden flex shrink-0">
-                                <img src="{{ asset('assets/images/logos/bri-logo-freelogovectors.net_.png') }}"
-                                    class="w-full h-full object-contain" alt="logo" />
-                            </div>
-                            <div class="flex flex-col justify-center gap-1">
-                                <p class="font-bold text-lg">BRI</p>
-                                <p class="font-semibold text-xs leading-[170%] text-belibang-grey">
-                                    Perbankan dan Keuangan
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href=""
-                        class="group tool-card w-fit h-fit p-[1px] rounded-full bg-img-transparent hover:bg-img-purple-to-orange transition-all duration-300">
-                        <div
-                            class="w-[300px] h-[100px] rounded-full p-[18px_24px] bg-img-black-gradient group-hover:[background-image:linear-gradient(#181818,#181818)] group-active:bg-img-black transition-all duration-300 flex gap-4 items-center shrink-0">
-                            <div class="w-16 h-16 overflow-hidden flex shrink-0">
-                                <img src="{{ asset('assets/images/logos/lg-65571292f0011-bsi.png') }}"
-                                    class="w-full h-full object-contain" alt="logo" />
-                            </div>
-                            <div class="flex flex-col justify-center gap-1">
-                                <p class="font-bold text-lg">BSI</p>
-                                <p class="font-semibold text-xs leading-[170%] text-belibang-grey">
-                                    Perbankan dan Keuangan
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href=""
-                        class="group tool-card w-fit h-fit p-[1px] rounded-full bg-img-transparent hover:bg-img-purple-to-orange transition-all duration-300">
-                        <div
-                            class="w-[300px] h-[100px] rounded-full p-[18px_24px] bg-img-black-gradient group-hover:[background-image:linear-gradient(#181818,#181818)] group-active:bg-img-black transition-all duration-300 flex gap-4 items-center shrink-0">
-                            <div class="w-16 h-16 overflow-hidden flex shrink-0">
-                                <img src="{{ asset('assets/images/logos/Bank bjb [siklogo.blogspot.com].png') }}"
-                                    class="w-full h-full object-contain" alt="logo" />
-                            </div>
-                            <div class="flex flex-col justify-center gap-1">
-                                <p class="font-bold text-lg">Bank BJB</p>
-                                <p class="font-semibold text-xs leading-[170%] text-belibang-grey">
-                                    Perbankan dan Keuangan
-                                </p>
-                            </div>
-                        </div>
-                    </a>
-                    <a href=""
-                        class="group tool-card w-fit h-fit p-[1px] rounded-full bg-img-transparent hover:bg-img-purple-to-orange transition-all duration-300">
-                        <div
-                            class="w-[300px] h-[100px] rounded-full p-[18px_24px] bg-img-black-gradient group-hover:[background-image:linear-gradient(#181818,#181818)] group-active:bg-img-black transition-all duration-300 flex gap-4 items-center shrink-0">
-                            <div class="w-16 h-16 overflow-hidden flex shrink-0">
-                                <img src="{{ asset('assets/images/logos/mandiri.png') }}"
-                                    class="w-full h-full object-contain" alt="logo" />
-                            </div>
-                            <div class="flex flex-col justify-center gap-1">
-                                <p class="font-bold text-lg">Mandiri</p>
-                                <p class="font-semibold text-xs leading-[170%] text-belibang-grey">
-                                    Perbankan dan Keuangan
-                                </p>
-                            </div>
-                        </div>
-                    </a>
+                        </a>
+                    @empty
+                        <x-empty-state title="Tidak ada data partner" message="Data akan segera tersedia disini." />
+                    @endforelse
                 </div>
             </div>
         </div>

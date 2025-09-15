@@ -29,7 +29,7 @@ class SearchController extends Controller
         
         // 1. Search Products (UPS)
         $products = Product::with(['category'])
-            ->where('stock', '>', 0)
+            ->where('name', 'LIKE', "%{$query}%")
             ->where(function($q) use ($query) {
                 $q->where('name', 'LIKE', "%{$query}%")
                   ->orWhere('brand', 'LIKE', "%{$query}%")
@@ -155,7 +155,7 @@ class SearchController extends Controller
         $suggestions = collect();
         
         // Product names and brands
-        $productSuggestions = Product::where('stock', '>', 0)
+        $productSuggestions = Product::where('name', 'LIKE', "%{$query}%")
             ->where(function($q) use ($query) {
                 $q->where('name', 'LIKE', "%{$query}%")
                   ->orWhere('brand', 'LIKE', "%{$query}%")

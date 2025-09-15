@@ -4,9 +4,9 @@
 
             <!-- Logo -->
             <div class="flex items-center">
-                <a href="/" class="flex w-[120px] sm:w-[154px] shrink-0 items-center">
-                    <img src="{{ asset('assets/images/logos/logo-shibaazaki.png') }}" class="h-20" alt="logo">
-                    <span class="text-belibang-grey font-semibold text-xl hidden lg:block">Shibaazaki</span>
+                <a href="/" class="flex w-[120px] sm:w-[154px] shrink-0 items-center space-x-2">
+                    <img src="{{ asset('assets/images/logos/favicon.png') }}" class="h-[45px]" alt="logo">
+                    <span class="text-belibang-grey font-bold text-2xl hidden lg:block">Shibaazaki</span>
                 </a>
             </div>
 

@@ -11,19 +11,6 @@
 <x-card :title="$product->name" :description="$product->description ?? $product->short_description" :image="Storage::url($product->image)" :href="$href ?? route('products.show', $product->slug)" :button-text="$showButton ? $buttonText : null" :button-href="$href ?? route('front.product.show', $product->slug)"
     button-variant="primary" :clickable-card="!$showButton" variant="product" {{ $attributes }}>
 
-    @if ($showPrice && isset($product->price))
-        <div class="flex items-center justify-between mb-2">
-            <span class="text-lg font-bold text-green-600">
-                Rp {{ number_format($product->price, 0, ',', '.') }}
-            </span>
-            @if ($product->original_price ?? false)
-                <span class="text-sm text-gray-400 line-through">
-                    Rp {{ number_format($product->original_price, 0, ',', '.') }}
-                </span>
-            @endif
-        </div>
-    @endif
-
     @if ($showRating && isset($product->rating))
         <div class="flex items-center mt-2">
             <div class="flex items-center">
